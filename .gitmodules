@@ -1,0 +1,6 @@
+[submodule "imd_cookie_cutter"]
+	path = imd_cookie_cutter
+	url = git@github.com:bliepp/imd_cookie_cutter.git
+[submodule "imd"]
+	path = imd
+	url = git@github.com:bliepp/imd.git
