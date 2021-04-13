@@ -5,7 +5,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{{scrbook}}}
 \ProcessOptions\relax
-\LoadClass[a4paper,parskip]{scrbook}
+\LoadClass[a4paper,parskip,bibliography=totoc]{scrbook}
 
 
 % don't use float package, it messes KOMA script up
@@ -33,6 +33,10 @@
 	citecolor=black,
 	urlcolor=black,
 }
+
+
+% BibTeX stuff
+\bibliographystyle{ieeetr}
 
 
 % definitions
