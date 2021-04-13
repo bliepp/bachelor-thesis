@@ -1,3 +1,7 @@
+# ---> Own
+# Output files
+index.pdf
+
 # ---> C
 # Prerequisites
 *.d
