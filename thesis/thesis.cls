@@ -25,6 +25,8 @@
 \RequirePackage{amsmath,amssymb,mathtools}
 \RequirePackage{multicol,enumerate,xspace}
 \RequirePackage[exponent-product=\cdot]{siunitx}
+\RequirePackage[colorinlistoftodos,ngerman]{todonotes}
+%\RequirePackage{showframe}
 \RequirePackage{hyperref}
 \hypersetup{
 	colorlinks=true,	% set true if you want colored links
