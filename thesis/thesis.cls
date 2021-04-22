@@ -5,7 +5,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{{scrbook}}}
 \ProcessOptions\relax
-\LoadClass[a4paper,parskip,bibliography=totoc]{scrbook}
+\LoadClass[a4paper,parskip=half,bibliography=totoc]{scrbook}
 
 
 % don't use float package, it messes KOMA script up
