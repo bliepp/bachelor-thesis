@@ -24,7 +24,7 @@
 \RequirePackage{lmodern,grffile,xcolor,caption,tcolorbox}
 \RequirePackage{amsmath,amssymb,mathtools}
 \RequirePackage{multicol,enumerate,xspace}
-\RequirePackage[exponent-product=\cdot]{siunitx}
+\RequirePackage[locale=DE,exponent-product=\cdot]{siunitx}
 \RequirePackage[colorinlistoftodos,ngerman]{todonotes}
 %\RequirePackage{showframe}
 \RequirePackage[hyphens]{url}
