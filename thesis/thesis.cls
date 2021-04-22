@@ -27,6 +27,7 @@
 \RequirePackage[exponent-product=\cdot]{siunitx}
 \RequirePackage[colorinlistoftodos,ngerman]{todonotes}
 %\RequirePackage{showframe}
+\RequirePackage[hyphens]{url}
 \RequirePackage{hyperref}
 \hypersetup{
 	colorlinks=true,	% set true if you want colored links
