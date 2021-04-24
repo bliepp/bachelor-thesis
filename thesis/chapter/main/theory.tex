@@ -16,12 +16,13 @@
 	durch einen sogenannten \emph{Slicer} in Schnittebenen unterteilt, die vom 3D-Drucker
 	nacheinander produziert und aufgeschichtet werden.
 
-	\subsection{Funktionsweise und Unterschiede zu anderen Methoden}
+	%\subsection{Funktionsweise und Unterschiede zu anderen Methoden}
+	\subsection{Funktionsweise und Unterschiede zum bekannteren FDM-Druck}
 		Das vermutlich bekannteste Verfahren zur additiven Fertigung ist wahrscheinlich das
 		\emph{Fused Depositing Modeling} (FDM), aus markenrechtsgründen auch bekannt als
 		\emph{Fused Filament Fabrication} (FFF). Dabei wird ein Kunststofffilament aufgeschmolzen
 		und durch eine Düse extrudiert. Die Düse (\emph{Hotend}) fährt hierbei während des
-		extrudierens wie in Abbildung \ref{fig:fdm} dargstestellt die Schnittebene ab, sodass
+		extrudierens wie in Abbildung \ref{fig:fdm} dargestellt die Schnittebene ab, sodass
 		Ebene für Ebene das gewünschte Objekt aufgeschichtet wird. Schichtdicken sind bei diesem
 		Verfahren üblicherweise zwischen \SI{0,025}{\milli\meter} und \SI{1,25}{\milli\meter}
 		\cite{wikipedia2021fused}.
@@ -33,12 +34,12 @@
 
 		\begin{figure}[ht]
 			\centering
-			\includegraphics[width=\textwidth]{chapter/main/img/FDM.png}
+			\includegraphics[width=0.9\textwidth]{chapter/main/img/FDM.png}
 			\caption[Schematische Darstellung des FDM-/FFF-Verfahrens]{Schematische Darstellung
-			einer möglichen Konfiguration des als FDM oder FFF bekannten 3D-Druck-Verfahrens.
-			Ein Fördermechanismus schiebt das Filament durch eine aufgeheizte Düse. Durch eine
+			einer möglichen Konfiguration des als FDM oder FFF bekannten 3D-Druck-Verfahrens. Ein
+			Fördermechanismus schiebt das Filament durch eine aufgeheizte Düse. Durch eine
 			Bewegung der Düse und/oder des Druckbetts in mindestens 3 Achsen erfolgt eine Formung
-			des Objektes Ebene für Ebene. \cite[S. 114]{horsch20143d}}
+			des gewünschten Objektes Ebene für Ebene. \cite[S. 114]{horsch20143d}}
 			\label{fig:fdm}
 		\end{figure}
 
@@ -53,16 +54,43 @@
 
 		\begin{figure}[ht]
 			\centering
-			\includegraphics[width=\textwidth]{chapter/main/img/SLS_SLM.png}
-			\caption[Schematische Darstellung des SLM-Verfahrens]{Schematische Darstellung
-			des SLM-Verfahrens. Der bewegliche Spiegel sorgt für eine präzise Positionierung
-			des Laser-Punktes. Während sich der Boden des Vorrats\-gefäßes im Prozess anhebt,
-			senkt sich der Boden des Druckraums ab. \cite[S. 119]{horsch20143d}}
+			\includegraphics[width=0.9\textwidth]{chapter/main/img/SLS_SLM.png}
+			\caption[Schematische Darstellung des SLM-Verfahrens]{Schematische Darstellung des
+			SLM-Verfahrens. Der bewegliche Spiegel sorgt für eine präzise Positionierung des
+			Laser-Punktes. Während sich der Boden des Vorrats\-gefäßes im Prozess anhebt, senkt
+			sich der Boden des Druckraums ab. \cite[S. 119]{horsch20143d}}
 			\label{fig:slm_sls}
 		\end{figure}
 
-	\subsection{Einfluss der Lasergeschwindigkeit auf die Oberflächenbeschaffenheit}
+		Das Druckbett wird üblicherweise um \SI{30}{\micro\meter} bis \SI{100}{\micro\meter}
+		abgesenkt \cite{song2012effects}. Zu den am häufigsten verwendete Materialien, die beim
+		SLM-Verfahren verwendet werden, zählen Titanlegierungen, insbesondere das in der Luft- und
+		Raumfahrt populäre Ti6Al4V \cite{sadali2020influence,song2012effects,brandl2012morphology}.
+		Aluminiumlegierungen werden ebenfalls verwendet
+		\cite[je Al-Si-10Mg]{yan2020comparative,zou2017study}.
+
 	\subsection{Beobachtbare Defekte im Material}
+		\todo[color=red]{Defekte beschreiben und bebildern mit \cite{zhang2017defect,galy2018main}}
+
+	\subsection{Einfluss der Lasergeschwindigkeit auf die Oberflächenbeschaffenheit}
+		Beim SLM-Verfahren sind verschiedene Parameter einstellbar, die das Resultat in
+		unterschiedlicher Weise und Stärke beeinflussen. Die wichtigsten Parameter hierfür sind,
+		wie in Abbildung \ref{fig:slm_parameters} zu sehen, die Lasergeschwindigkeit
+		(\emph{scanning speed}), die Laserleistung, der horizontale Bahnabstand
+		(\emph{hatch distance}, \emph{hatching distance} oder \emph{hatch spacing}), die
+		Wellenlänge des Lasers, der Durchmesser des fokussierten Laserpunktes
+		(\emph{spot size}) und die Dicke der Pulverschicht (\emph{layer thickness})
+		\cite{sadali2020influence}.
+
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[width=0.8\textwidth]{chapter/main/img/slm_parameters.jpg}
+			\caption{Darstellung und räumliche Einordnung der wichtigsten einstellbaren Parameter
+			beim SLM-Druck. \cite{saunders2017x}}
+			\label{fig:slm_parameters}
+		\end{figure}
+
+		\todo[color=red]{Erklärung auf Basis von \cite{sadali2020influence}}
 
 
 \section{Molekulardynamische Modellierung von SLM}
