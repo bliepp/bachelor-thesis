@@ -39,7 +39,7 @@
 
 
 % BibTeX stuff
-\bibliographystyle{ieeetr}
+\bibliographystyle{ieeetr-de}
 
 
 % definitions
