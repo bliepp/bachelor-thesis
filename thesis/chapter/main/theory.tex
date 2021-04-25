@@ -34,7 +34,7 @@
 
 		\begin{figure}[ht]
 			\centering
-			\includegraphics[width=0.9\textwidth]{chapter/main/img/FDM.png}
+			\includegraphics[width=0.9\textwidth]{chapter/main/img/fdm.png}
 			\caption[Schematische Darstellung des FDM-/FFF-Verfahrens]{Schematische Darstellung
 			einer möglichen Konfiguration des als FDM oder FFF bekannten 3D-Druck-Verfahrens. Ein
 			Fördermechanismus schiebt das Filament durch eine aufgeheizte Düse. Durch eine
@@ -45,16 +45,16 @@
 
 		Das in dieser Arbeit beobachtete Verfahren ist jedoch das \emph{selektive Laserschmelzen}
 		(SLM). Der Drucker besteht hierbei aus zwei Gefäßen mit beweglichen Böden (Abbildung
-		\ref{fig:slm_sls}). Das Gefäß für den Materialvorrat ist mit dem Material in Pulverform
-		gefüllt, während das andere wenig bis gar nicht gefüllt ist. Beim Drucken einer neuen
-		Ebene hebt sich der Boden des Materialvorrats und eine Walze (\emph{Beschichtungseinheit})
-		überträgt das dosierte Material in den Druckraum, dessen Druckbett abgesenkt wird. Ein
-		beweglicher Laser fährt nun die gewünschte Schnittebene ab und verschmilzt das Pulver zu
-		einer festen Form.
+		\ref{fig:slm_sls}). Das Gefäß für den Materialvorrat (\emph{feed container}) ist mit dem
+		Material in Pulverform gefüllt, während das andere wenig bis gar nicht gefüllt ist. Beim
+		Drucken einer neuen Ebene hebt sich der Boden des Materialvorrats und eine Walze
+		(\emph{Beschichtungseinheit}) überträgt das dosierte Material in den Druckraum, dessen
+		Druckbett abgesenkt wird. Ein beweglicher Laser fährt nun die gewünschte Schnittebene ab
+		und verschmilzt das Pulver zu einer festen Form.
 
 		\begin{figure}[ht]
 			\centering
-			\includegraphics[width=0.9\textwidth]{chapter/main/img/SLS_SLM.png}
+			\includegraphics[width=0.9\textwidth]{chapter/main/img/sls_slm.png}
 			\caption[Schematische Darstellung des SLM-Verfahrens]{Schematische Darstellung des
 			SLM-Verfahrens. Der bewegliche Spiegel sorgt für eine präzise Positionierung des
 			Laser-Punktes. Während sich der Boden des Vorrats\-gefäßes im Prozess anhebt, senkt
@@ -69,10 +69,52 @@
 		Aluminiumlegierungen werden ebenfalls verwendet
 		\cite[je Al-Si-10Mg]{yan2020comparative,zou2017study}.
 
-	\subsection{Beobachtbare Defekte im Material}
-		\todo[color=red]{Defekte beschreiben und bebildern mit \cite{zhang2017defect,galy2018main}}
+	\subsection{Beobachtbare Defekte im fertigen Bauteil}
+		\subsubsection{Porenbildung}
+		Aufgrund verschiedener physikalischer Phänomene treten während des Verfahrens Vorgänge auf,
+		die sich in Materialdefekten bemerkbar machen. Einer der bekannstesten Defekte ist die
+		\emph{Porenbildung}. Mit einer Größe von weniger als \SI{100}{\micro\meter} zählen diese
+		Gaseinschlüsse zu den kleinsten der hier aufgeführten Defekte \cite{zhang2017defect}. Es
+		werden zwei verschiedene Gasquellen unterschieden. Während eine Quelle des dafür
+		notwendigen Gases die Verdampfung mancher Legierungsbestandteile, wie beispielweise
+		Magnesium, sein kann, kann ein Gaseinschluss nicht zuletzt auch durch Einschluss des beim
+		Prozess verwendeten Umgebungsgases erfolgen \cite{galy2018main}. In letzterem Fall kann
+		zum Beispiel eine zu geringe Packungsdichte des verwendeten Materialpulvers die Ursache
+		sein. Das Gas dringt hierbei während des Schmelzprozesses in die Schmelze ein, erreicht
+		aber aufgrund einer hohen Kühlrate die Oberfläche nicht vor dem Erstarren, sodass beim
+		Erhärten des Materials ein Lufteinschluss die Folge ist. Aus diesem Grund haben Poren eine
+		näherungsweise sphärische Form. Sie sind üblicherweise im im gefertigten Bauteil
+		gleichverteilt aufzufinden. Das komplette Eliminieren aller Poren gilt als sehr schwer
+		\cite{zhang2017defect}. Galy et al. zufolge hat die Porengröße und -form einen
+		entscheidenden Einfluss auf die Qualität des Bauteils. Größere Makroporen verschlechtern
+		die Qualität stärker als kleinere Mikroporen, wobei sich mehrere Mikroporen während einer
+		Hitzebehandlung zu größeren Makroporen vereinigen können. Eine stärkere Entrundung der
+		sphärischen Form der Poren kann eine Ursache von Rissen im Bauteil sein
+		\cite{galy2018main}. Poren unterschiedlicher Größe sind in Abbildung
+		\ref{fig:defects_porosities} zu sehen.
 
-	\subsection{Einfluss der Lasergeschwindigkeit auf die Oberflächenbeschaffenheit}
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[width=0.7\textwidth]{chapter/main/img/defects/porosities.png}
+			\caption{Poren sphärischer Form unterschiedlicher Größe \cite{zhang2017defect}.}
+			\label{fig:defects_porosities}
+		\end{figure}
+
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[width=0.7\textwidth]{chapter/main/img/defects/lack_of_fusion.png}
+			\caption{Was auch immer \cite{zhang2017defect}}
+			\label{fig:defects_lof}
+		\end{figure}
+
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[width=0.7\textwidth]{chapter/main/img/defects/cracks.png}
+			\caption{Was auch immer \cite{zhang2017defect}}
+			\label{fig:defects_cracks}
+		\end{figure}
+
+	\subsection{Wichtige Parameter und Einfluss der Lasergeschwindigkeit}
 		Beim SLM-Verfahren sind verschiedene Parameter einstellbar, die das Resultat in
 		unterschiedlicher Weise und Stärke beeinflussen. Die wichtigsten Parameter hierfür sind,
 		wie in Abbildung \ref{fig:slm_parameters} zu sehen, die Lasergeschwindigkeit
