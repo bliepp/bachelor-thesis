@@ -51,6 +51,7 @@
 		(\emph{Beschichtungseinheit}) überträgt das dosierte Material in den Druckraum, dessen
 		Druckbett abgesenkt wird. Ein beweglicher Laser fährt nun die gewünschte Schnittebene ab
 		und verschmilzt das Pulver zu einer festen Form.
+		\todo[color=red]{Quelle dazu finden bzw. nennen. Florian Horsch?}
 
 		\begin{figure}[ht]
 			\centering
@@ -96,39 +97,86 @@
 		\begin{figure}[ht]
 			\centering
 			\includegraphics[width=0.7\textwidth]{chapter/main/img/defects/porosities.png}
-			\caption{Poren sphärischer Form unterschiedlicher Größe \cite{zhang2017defect}.}
+			\caption{Poren sphärischer Form unterschiedlicher Größe entstehen durch Gaseinschlüsse
+			\cite{zhang2017defect}}
 			\label{fig:defects_porosities}
 		\end{figure}
+
+		\subsubsection{Mangelnde Verschmelzung}
+		Eine mangelnde Verschmelzung (\emph{lack-of-fusion} oder kurz: \emph{LOF}) entsteht
+		überwiegend durch unzureichende Energiezufuhr während des Schmelzprozesses. Durch die zu
+		niedrige Energie vermindert sich die Breite des Schmelzbades. Bei unzureichender
+		Überlappung der Bahnen kann dies zu fehlender Haftung zwischen diesen (sogenannten
+		\emph{bonding defects} Abbildung \ref{fig:defects_lof} a)) führen. Außerdem resultiert
+		die mangelnde Aufschmelzung in zahlreichen Pulvereinschlüssen (Abbildung
+		\ref{fig:defects_lof} b)). Sollte die Energiezufuhr sogar unzureichend sein, um die
+		gesamte Schichthöhe zu penetrieren, führt dies zu mangelhafter Bindung zwischen den
+		Ebenen. Aus diesen Gründen sind Defekte mangelnder Verschmelzung betreffend hauptsächlich
+		zwischen den Bahnen einer Ebene und zwischen den Ebenen selbst zu finden. Da Defekte eine
+		raue Oberfläche erzeugen, wird der Materialfluss der nächsten Ebene ebenfalls gestört,
+		sodass Zwischenebenendefekte auftreten können, die graduell durch mehrere Ebenen
+		propagieren und somit Defekte zur Folge haben, die sich über mehrere Ebenen erstrecken.
+		Legierungen mit oxidierbaren Bestandteilen wie Al-Si-10Mg können durch einen entstehenden
+		Oxidfilm und der damit verbundenen verminderten Benetzbarkeit ebenfalls Probleme mit der
+		Aneinanderbindung von Bahnen haben \cite{zhang2017defect}.
 
 		\begin{figure}[ht]
 			\centering
 			\includegraphics[width=0.7\textwidth]{chapter/main/img/defects/lack_of_fusion.png}
-			\caption{Was auch immer \cite{zhang2017defect}}
+			\caption{a) Zwei Bahnen mit schlechter Verbindung durch mangelnde Überlappung
+			b) Gut erkennbare Pulvereinschlüsse durch unzureichendes Aufschmelzen des Pulvers
+			in Hohlräumen \cite{zhang2017defect}}
 			\label{fig:defects_lof}
 		\end{figure}
 
+		\subsubsection{Risse}
+		Während des Prozesses veim SLM-Verfahren herschen nach dem Schmelzen Kühlraten von bis zu
+		\SI{1e8}{\kelvin\per\second}. Der dadruch entstehende Temperaturgradient und die damit
+		verbundene unterschiedliche starke Kompression führt zu hohen Spannungen im Material.
+		Diese Spannungen können nun dafür sorgen, dass Risse (\emph{cracks}) entstehen und weiter
+		durch das Material propagieren. Abbildung \ref{fig:defects_cracks} zeigt gut
+		verschiedene Stellen eines Risses, der sich an der Oberfläche gebildet hat und weiter in
+		das bauteil hineinpropagiert ist \cite{zhang2017defect}. Wie bereits in Abschnitt
+		\emph{Porenbildung} erwähnt können auch nicht-sphärische Poren begünstigend auf die
+		Rissbildung wirken \cite{galy2018main}.
+
 		\begin{figure}[ht]
 			\centering
-			\includegraphics[width=0.7\textwidth]{chapter/main/img/defects/cracks.png}
-			\caption{Was auch immer \cite{zhang2017defect}}
+			\includegraphics[width=0.7\textwidth]{chapter/main/img/defects/cracks_part.png}
+			\caption{Aufnahme des Rands eines produziertes Objektes, von dem ein Riss ausgeht. Es
+			ist gut erkennbar wie der Riss von Rand ausgehen in das Objekt hineinpropagiert ist.
+			\cite{zhang2017defect}}
 			\label{fig:defects_cracks}
 		\end{figure}
 
 	\subsection{Wichtige Parameter und Einfluss der Lasergeschwindigkeit}
 		Beim SLM-Verfahren sind verschiedene Parameter einstellbar, die das Resultat in
-		unterschiedlicher Weise und Stärke beeinflussen. Die wichtigsten Parameter hierfür sind,
-		wie in Abbildung \ref{fig:slm_parameters} zu sehen, die Lasergeschwindigkeit
-		(\emph{scanning speed}), die Laserleistung, der horizontale Bahnabstand
-		(\emph{hatch distance}, \emph{hatching distance} oder \emph{hatch spacing}), die
-		Wellenlänge des Lasers, der Durchmesser des fokussierten Laserpunktes
-		(\emph{spot size}) und die Dicke der Pulverschicht (\emph{layer thickness})
-		\cite{sadali2020influence}.
+		unterschiedlicher Weise und Stärke beeinflussen. Eine kategorische Übersicht über alle
+		beim SLM-Prozess variierbaren Parameter ist in Abbildung \ref{fig:scheme_parameters} zu
+		finden.
+
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[width=\textwidth]{chapter/main/img/scheme_parameters_2.png}
+			\caption{Eine Übersicht aller beim SLM-Verfahren einstellbaren Parameter nach
+			Kategorie geordnet \cite{zhang2017defect,aboulkhair2014reducing}}
+			\label{fig:scheme_parameters}
+		\end{figure}
+
+		Die wichtigsten Parameter sind, wie in Abbildung \ref{fig:slm_parameters} zu sehen, die
+		Lasergeschwindigkeit (\emph{scanning speed}), die Laserleistung, der horizontale
+		Bahnabstand (\emph{hatch distance}, \emph{hatching distance} oder \emph{hatch spacing}),
+		die Wellenlänge des Lasers, der Durchmesser des fokussierten Laserpunktes
+		(\emph{spot size}) und die durch die Dicke der Pulverschicht bestimmte Ebenenhöhe
+		(\emph{layer thickness}) \cite{sadali2020influence}. Da für diese Arbeit die Größenordnung
+		im Bereich der einzelnen Pulverpartikel von Interesse ist, werden im weiteren Verlauf der
+		Bahnabstand und die Ebenenhöhe nicht weiter diskutiert.
 
 		\begin{figure}[ht]
 			\centering
 			\includegraphics[width=0.8\textwidth]{chapter/main/img/slm_parameters.jpg}
 			\caption{Darstellung und räumliche Einordnung der wichtigsten einstellbaren Parameter
-			beim SLM-Druck. \cite{saunders2017x}}
+			beim SLM-Druck und ihre üblichen Einheiten \cite{saunders2017x}}
 			\label{fig:slm_parameters}
 		\end{figure}
 
