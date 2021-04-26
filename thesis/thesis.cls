@@ -52,18 +52,18 @@
 \definecolor{verylightgrey}{HTML}{DDDDDD}
 
 %% infinitesimal elements
-\newcommand{\dinf}{\ensuremath{\text{d}}}
-\newcommand{\dx}[1][x]{\ensuremath{\dinf #1}}
-\newcommand{\ddx}[1][x]{\ensuremath{\frac{\dinf}{\dinf #1}}}
-\newcommand{\partdx}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
+\newcommand{\dinf}{\ensuremath{\text{d}}\xspace}
+\newcommand{\dx}[1][x]{\ensuremath{\dinf #1}\xspace}
+\newcommand{\ddx}[1][x]{\ensuremath{\frac{\dinf}{\dinf #1}}\xspace}
+\newcommand{\partdx}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}\xspace}
 
-\newcommand{\dt}[1][t]{\dx[#1]}
+\newcommand{\dt}[1][t]{\dx[#1]\xspace}
 
 %% vector stuff
-\newcommand{\rvec}[1]{\ensuremath{\left( \begin{array}{c}#1\end{array} \right)}}
-\newcommand{\tvec}[1]{\ensuremath{\left( #1 \right)^\top}}
-\newcommand{\uvec}[1]{\ensuremath{\underline{#1}}}
-\newcommand{\umat}[1]{\ensuremath{\underline{ \underline{#1} }}}
+\newcommand{\rvec}[1]{\ensuremath{\left( \begin{array}{c}#1\end{array} \right)}\xspace}
+\newcommand{\tvec}[1]{\ensuremath{\left( #1 \right)^\top}\xspace}
+\newcommand{\uvec}[1]{\ensuremath{\underline{#1}}\xspace}
+\newcommand{\umat}[1]{\ensuremath{\underline{ \underline{#1} }}\xspace}
 
 %% operator and function stuff
 \renewcommand{\Re}{\operatorname{Re}}
