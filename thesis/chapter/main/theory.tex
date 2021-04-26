@@ -186,39 +186,105 @@
 
 
 \section{Molekulardynamische Modellierung von SLM}
-	\subsection{Numerische Integration von newtonschen Bewegungsgleichungen}
-		Newtonsche Bewegungsgleichungen, die die Bewegungen für $N$ Teilchen wie in Gleichung
-		\eqref{eq:newtone_dgl} beschreiben, können im Allgemeinen nicht immer analytisch gelöst
-		werden.
+	\subsection{Grundlegende Funktionsweise der Molekulardynamik (MD)}
+		Um die Trajektorien aller Atome oder Moleküle in einem System großer Teilchenzahl $N$ zu
+		bestimmen, bedarf es der Lösung der zugehörigen Bewegungsgleichungen, wie sie in Gleichung
+		\eqref{eq:newtone_dgl} zu sehen sind.
 
 		\begin{align}
-			m_i \ddot{\uvec{x}}_i &= \sum_{\substack{j=0\\j \neq i}}^{N-1} \uvec{F}_{i,j}
+			m_i \ddot{\uvec{x}}_i &= \uvec{F}_i
+			& \text{mit} &&
+			\uvec{F}_{i} &= \sum_{\substack{j=0\\j \neq i}}^{N-1} \uvec{F}_{i,j}
+			= -\sum_{\substack{j=0\\j \neq i}}^{N-1} \nabla_i U_j = -\nabla_i U
 			\label{eq:newtone_dgl}
 		\end{align}
 
 		Hierbei ist $m_i$ die Masse und $\uvec{x}_i$ der Ortsvektor des Teilchens $i$ und
-		$\uvec{F}_{i,j}$ die vektorielle Kraft zwischen zwei Teilchen $i$ und $j$. Um dennoch eine
-		Lösung der Bewegungsgleichungen zu erhalten bedarf es somit der numerischen Integration
-		dieser.
+		$\uvec{F}_{i}$ die vektorielle Kraft auf das Teilchen $i$. Weiterhin ist $\uvec{F}_{i,j}$
+		die Einzelkraft zwischen zwei Teilchen $i$ und $j$ sowie $U_i$ das vom Teilchen $i$
+		ausgehende Potential und $\nabla_i$ der Gradient der Koordinate $\uvec{x}_i$. Da diese
+		Bewegungsgleichungen für große Teilchenzahlen $N$ im Allgemeinen nicht analytisch lösbar
+		sind \todo[color=green]{Bezug auf NLD-Vorlesung bzgl. Unlösbarkeit?} bedarf es einer Simulation zur
+		numerischen Integration dieser. Ein Lösungsansatz zur Beschreibung der Einzeltrajektorien
+		aller Atome oder Moleküle in einem System ist die Molekulardynamik.
 
-		Die wohl simpelste Methode der numerische Integration ist das Euler-Verfahren. Hierbei
-		wird das Taylorpolynom ersten Grades der Trajektorie verwendet und alle höheren Terme
-		verworfen. Mithilfe der Diskretisierung des Zeitschritts \dt lässt sich von einem
+		Bei der Molekulardynamik werden also Systeme anhand der zugrundeliegenden Wechselwirkung
+		zwischen den Teilchen beschrieben \cite{allen2004introduction}.
+
+		Das am weitesten verbreitete Potential für klassische Molekulardynamik mit ungeladenen
+		Teilchen ist das Lennard-Jones-Potential nach Gleichung \eqref{eq:potential_lj}.
+
+		\begin{align}
+			U_\text{LJ}(r) &= 4\epsilon \left[
+				\left(\frac{\sigma}{r}\right)^{12}
+				-
+				\left(\frac{\sigma}{r}\right)^{6}
+			\right] \label{eq:potential_lj}
+		\end{align}
+
+		Wie in Abbildung \ref{fig:potential_lj} zu sehen besteht es aus einer Starken, aber kurzreichweitigen, abstoßenden
+		Komponente und einer schwächeren, aber langreichweitigeren, anziehenden Komponente.
+
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[width=0.7\textwidth]{chapter/main/plt/lennard_jones.eps}
+			\caption{Auftragung der Funktion in Gleichung \eqref{eq:potential_lj} in Einheiten
+			der Parameter $\epsilon$ und $\sigma$}
+			\label{fig:potential_lj}
+		\end{figure}
+
+	\subsection{Numerische Integration von newtonschen Bewegungsgleichungen}
+		Die wohl simpelste Methode der numerische Integration ist das \emph{Euler-Verfahren}.
+		Hierbei wird das Taylorpolynom ersten Grades der Trajektorie verwendet und alle höheren
+		Terme verworfen. Mithilfe der Diskretisierung des Zeitschritts \dt lässt sich von einem
 		Integrationsschritt $n$ näherungsweise auf den nächsten $n+1$ schließen:
 
 		\begin{align}
 			\uvec{x}_{n+1} &= \uvec{x}_n + \dot{\uvec{x}}_n \dt + \BigO\left(\dt^2\right)
 		\end{align}
 
-		Das Problem, welches dem Euler-Verfahren innewohnt, ist trotz seiner einfachen
-		Berechenbarkeit (oder gerade deswegen) die Tatsache, dass er nicht symplektisch ist und
-		somit nicht die für ein solches System notwendige Forderung nach Energieerhaltung
-		erfüllen kann \cite[S. 6f]{klein2013klassische}.
+		Hierbei bezeichnet $\dot{\uvec{x}}$ die erste Ableitung von $x$ nach der Zeit,
+		$\ddot{\uvec{x}}$ die zweite Ableitung, und so weiter. Das Problem, welches dem
+		Euler-Verfahren innewohnt, ist die Tatsache, dass es nicht symplektisch ist und somit
+		nicht die für ein solches System notwendige Forderung nach Energieerhaltung erfüllen kann
+		\cite[S. 6f]{klein2013klassische}.
 
+		Ein symplektischer Algorithmus ist der \emph{Verlet-Algorithmus}. Er entsteht durch zwei
+		Taylorentwicklungen 4. Ordnung der Trajektorie wie in den Gleichungen
+		\eqref{eq:verlet_taylor_fw} und \eqref{eq:verlet_taylor_bw}, wobei eine der Entwicklungen
+		mit positivem Zeitschritt \dt und eine mit negativem Zeitschritt -\dt durchgeführt wird
+		\cite[S. 69f]{frenkel2001understanding}:
 
-	\subsection{Grundlegende Funktionsweise der Molekulardynamik (MD)}
+		\begin{align}
+			\uvec{x}_{n+1} &= \uvec{x}_n + \dot{\uvec{x}}\dt + \frac{1}{2}\ddot{\uvec{x}}\dt^2
+				+ \frac{1}{3!}\dddot{\uvec{x}}_n\dt^3 + \BigO\left(\dt^4\right)
+				\label{eq:verlet_taylor_fw} \\
+			\uvec{x}_{n-1} &= \uvec{x}_n - \dot{\uvec{x}}\dt + \frac{1}{2}\ddot{\uvec{x}}\dt^2
+				- \frac{1}{3!}\dddot{\uvec{x}}_n\dt^3 + \BigO\left(\dt^4\right)
+				\label{eq:verlet_taylor_bw}
+		\end{align}
+
+		Durch Addition ergibt sich damit ein nicht-selbststartender symplektischer Algorithmus wie
+		in Gleichung \eqref{eq:verlet} beschrieben.
+
+		\begin{align}
+			\uvec{x}_{n+1} &= 2 \uvec{x}_n - \uvec{x}_{n-1} + \ddot{\uvec{x}}_n\dt^2
+				+ \BigO\left(\dt^4\right) \label{eq:verlet}
+		\end{align}
+
+		Häufiger ist jedoch der dazu äquivalente \emph{Velocity-Verlet-Algorithmus} aus Gleichung
+		\eqref{eq:velocity_verlet} in Verwendung.
+
+		\begin{align}
+			\uvec{x}_{n+1} &= \uvec{x}_n + \dot{\uvec{x}}\dt
+				+ \frac{1}{2}\ddot{\uvec{x}}\dt^2 + \BigO\left(\dt^4\right) \nonumber\\
+			\dot{\uvec{x}}_{n+1} &= \dot{\uvec{x}}_n + \frac{\ddot{\uvec{x}}_n +
+				\ddot{\uvec{x}}_{n+1}}{2}\dt + \BigO\left(\dt^2\right)
+				\label{eq:velocity_verlet}
+		\end{align}
 
 	\subsection{Notwendige Näherungen und Vereinfachungen}
+		\todo[color=red]{Kurzes Kapitel darüber warum Aluminium? Bzw über Alu an sich?}
 		\todo[color=red]{Kleinere Skala und größere Gravitation mithilfe von \cite{glosli2007extending} motivieren.}
 	\subsection{Implementierung des Laser}
 	\subsection{Besonderheiten bei der Simulationssoftware IMD}
