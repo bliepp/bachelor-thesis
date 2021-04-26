@@ -57,6 +57,8 @@
 \newcommand{\ddx}[1][x]{\ensuremath{\frac{\dinf}{\dinf #1}}}
 \newcommand{\partdx}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
 
+\newcommand{\dt}[1][t]{\dx[#1]}
+
 %% vector stuff
 \newcommand{\rvec}[1]{\ensuremath{\left( \begin{array}{c}#1\end{array} \right)}}
 \newcommand{\tvec}[1]{\ensuremath{\left( #1 \right)^\top}}
