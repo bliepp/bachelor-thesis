@@ -12,9 +12,9 @@
 	auf 40\% \cite{stevenson2019survey}.
 
 	Obwohl es eine Vielzahl unterschiedlicher Methoden der additiven Fertigung gibt, funktionieren
-	alle Methoden nach einem ähnlichen Grundprinzip: Das digitale 3-dimension\-ale Objekt wird
-	durch einen sogenannten \emph{Slicer} in Schnittebenen unterteilt, die vom 3D-Drucker
-	nacheinander produziert und aufgeschichtet werden.
+	alle nach einem ähnlichen Grundprinzip: Das digitale 3-dimension\-ale Modell wird durch einen
+	sogenannten \emph{Slicer} in Schnittebenen unterteilt, die vom 3D-Drucker nacheinander
+	produziert und aufgeschichtet werden.
 
 	%\subsection{Funktionsweise und Unterschiede zu anderen Methoden}
 	\subsection{Funktionsweise und Unterschiede zum bekannteren FDM-Druck}
@@ -30,7 +30,9 @@
 		Obwohl dieses Verfahren relativ einfach umzusetzen ist wird es durch verschiedene Faktoren
 		limitiert. So ist beispielsweise für die Qualität die Form des zu druckenden Objekts
 		relevant. Außerdem ist dieses Verfahren auf bestimmte Materialien beschränkt, wie
-		Thermoplaste und Formwachse \cite{wikipedia2021fused}.
+		Thermoplaste und Formwachse. Die Druckbarkeit wird nicht zuletzt auch durch die
+		Gravitation beschränkt, sodass je nach Form auch Stützstrukturen (\emph{support}, siehe
+		Abbildung \ref{fig:fdm}) erforderlich sein können \cite{wikipedia2021fused}.
 
 		\begin{figure}[ht]
 			\centering
@@ -111,14 +113,14 @@
 		die mangelnde Aufschmelzung in zahlreichen Pulvereinschlüssen (Abbildung
 		\ref{fig:defects_lof} b)). Sollte die Energiezufuhr sogar unzureichend sein, um die
 		gesamte Schichthöhe zu penetrieren, führt dies zu mangelhafter Bindung zwischen den
-		Ebenen. Aus diesen Gründen sind Defekte mangelnder Verschmelzung betreffend hauptsächlich
-		zwischen den Bahnen einer Ebene und zwischen den Ebenen selbst zu finden. Da Defekte eine
-		raue Oberfläche erzeugen, wird der Materialfluss der nächsten Ebene ebenfalls gestört,
-		sodass Zwischenebenendefekte auftreten können, die graduell durch mehrere Ebenen
-		propagieren und somit Defekte zur Folge haben, die sich über mehrere Ebenen erstrecken.
-		Legierungen mit oxidierbaren Bestandteilen wie Al-Si-10Mg können durch einen entstehenden
-		Oxidfilm und der damit verbundenen verminderten Benetzbarkeit ebenfalls Probleme mit der
-		Aneinanderbindung von Bahnen haben \cite{zhang2017defect}.
+		Ebenen. Aus diesen Gründen sind Defekte die mangelnde Verschmelzung betreffend
+		hauptsächlich zwischen den Bahnen einer Ebene und zwischen den Ebenen selbst zu finden. Da
+		diese Defekte eine raue Oberfläche erzeugen, wird der Materialfluss der nächsten Ebene
+		ebenfalls gestört, sodass Zwischenebenendefekte auftreten können, die graduell durch
+		mehrere Ebenen propagieren und somit Defekte zur Folge haben, die sich über mehrere Ebenen
+		erstrecken. Legierungen mit oxidierbaren Bestandteilen wie Al-Si-10Mg können durch einen
+		entstehenden Oxidfilm und der damit verbundenen verminderten Benetzbarkeit ebenfalls
+		Probleme mit der Aneinanderbindung von Bahnen haben \cite{zhang2017defect}.
 
 		\begin{figure}[ht]
 			\centering
@@ -130,15 +132,15 @@
 		\end{figure}
 
 		\subsubsection{Risse}
-		Während des Prozesses veim SLM-Verfahren herschen nach dem Schmelzen Kühlraten von bis zu
-		\SI{1e8}{\kelvin\per\second}. Der dadruch entstehende Temperaturgradient und die damit
-		verbundene unterschiedliche starke Kompression führt zu hohen Spannungen im Material.
-		Diese Spannungen können nun dafür sorgen, dass Risse (\emph{cracks}) entstehen und weiter
-		durch das Material propagieren. Abbildung \ref{fig:defects_cracks} zeigt gut
-		verschiedene Stellen eines Risses, der sich an der Oberfläche gebildet hat und weiter in
-		das bauteil hineinpropagiert ist \cite{zhang2017defect}. Wie bereits in Abschnitt
-		\emph{Porenbildung} erwähnt können auch nicht-sphärische Poren begünstigend auf die
-		Rissbildung wirken \cite{galy2018main}.
+		Während des Schmelzprozesses herschen nach dem Schmelzen Kühlraten von bis zu
+		\SI{e8}{\kelvin\per\second}. Der dadruch entstehende Temperaturgradient und die damit
+		verbundene unterschiedlich starke Kompression führt zu hohen Spannungen im Material.
+		Diese Spannungen können nun dafür sorgen, dass Risse (\emph{cracks}) entstehen und dass
+		diese weiter durch das Material propagieren. Abbildung \ref{fig:defects_cracks} zeigt gut
+		verschiedene Stellen eines Risses, der sich an einer Oberfläche gebildet hat und weiter in
+		das Bauteil hineinpropagiert ist \cite{zhang2017defect}. Wie bereits in Abschnitt
+		\emph{Porenbildung} erwähnt können auch nicht-sphärische Poren besonders begünstigend auf
+		die Rissbildung wirken \cite{galy2018main}.
 
 		\begin{figure}[ht]
 			\centering
@@ -165,12 +167,14 @@
 
 		Die wichtigsten Parameter sind, wie in Abbildung \ref{fig:slm_parameters} zu sehen, die
 		Lasergeschwindigkeit (\emph{scanning speed}), die Laserleistung, der horizontale
-		Bahnabstand (\emph{hatch distance}, \emph{hatching distance} oder \emph{hatch spacing}),
-		die Wellenlänge des Lasers, der Durchmesser des fokussierten Laserpunktes
-		(\emph{spot size}) und die durch die Dicke der Pulverschicht bestimmte Ebenenhöhe
-		(\emph{layer thickness}) \cite{sadali2020influence}. Da für diese Arbeit die Größenordnung
-		im Bereich der einzelnen Pulverpartikel von Interesse ist, werden im weiteren Verlauf der
-		Bahnabstand und die Ebenenhöhe nicht weiter diskutiert.
+		Bahnabstand (\emph{hatch distance} oder \emph{hatch spacing}), die Wellenlänge des Lasers,
+		der Durchmesser des fokussierten Laserpunktes (\emph{spot size}) und die durch die Dicke
+		der Pulverschicht bestimmte Ebenenhöhe (\emph{layer thickness})
+		\cite{sadali2020influence}. Da für diese Arbeit die Größenordnung im Bereich der einzelnen
+		Pulverpartikel von Interesse ist, werden im weiteren Verlauf der Bahnabstand und die
+		Ebenenhöhe nicht weiter diskutiert.
+
+		\todo[color=red]{Paper weiterlesen und verstehen, was zur Hölle da eigentlich abgeht?}
 
 		\begin{figure}[ht]
 			\centering
@@ -182,7 +186,38 @@
 
 
 \section{Molekulardynamische Modellierung von SLM}
+	\subsection{Numerische Integration von newtonschen Bewegungsgleichungen}
+		Newtonsche Bewegungsgleichungen, die die Bewegungen für $N$ Teilchen wie in Gleichung
+		\eqref{eq:newtone_dgl} beschreiben, können im Allgemeinen nicht immer analytisch gelöst
+		werden.
+
+		\begin{align}
+			m_i \ddot{\uvec{x}}_i &= \sum_{\substack{j=0\\j \neq i}}^{N-1} \uvec{F}_{i,j}
+			\label{eq:newtone_dgl}
+		\end{align}
+
+		Hierbei ist $m_i$ die Masse und $\uvec{x}_i$ der Ortsvektor des Teilchens $i$ und
+		$\uvec{F}_{i,j}$ die vektorielle Kraft zwischen zwei Teilchen $i$ und $j$. Um dennoch eine
+		Lösung der Bewegungsgleichungen zu erhalten bedarf es somit der numerischen Integration
+		dieser.
+
+		Die wohl simpelste Methode der numerische Integration ist das Euler-Verfahren. Hierbei
+		wird das Taylorpolynom ersten Grades der Trajektorie verwendet und alle höheren Terme
+		verworfen. Mithilfe der Diskretisierung des Zeitschritts \dt lässt sich von einem
+		Integrationsschritt $n$ näherungsweise auf den nächsten $n+1$ schließen:
+
+		\begin{align}
+			\uvec{x}_{n+1} &= \uvec{x}_n + \dot{\uvec{x}}_n \dt + \BigO\left(\dt^2\right)
+		\end{align}
+
+		Das Problem, welches dem Euler-Verfahren innewohnt, ist trotz seiner einfachen
+		Berechenbarkeit (oder gerade deswegen) die Tatsache, dass er nicht symplektisch ist und
+		somit nicht die für ein solches System notwendige Forderung nach Energieerhaltung
+		erfüllen kann \cite[S. 6f]{klein2013klassische}.
+
+
 	\subsection{Grundlegende Funktionsweise der Molekulardynamik (MD)}
+
 	\subsection{Notwendige Näherungen und Vereinfachungen}
 		\todo[color=red]{Kleinere Skala und größere Gravitation mithilfe von \cite{glosli2007extending} motivieren.}
 	\subsection{Implementierung des Laser}
