@@ -19,17 +19,17 @@
 	%\subsection{Funktionsweise und Unterschiede zu anderen Methoden}
 	\subsection{Funktionsweise und Unterschiede zum bekannteren FDM-Druck}
 		Das vermutlich bekannteste Verfahren zur additiven Fertigung ist wahrscheinlich das
-		\emph{Fused Depositing Modeling} (FDM), aus markenrechtsgründen auch bekannt als
-		\emph{Fused Filament Fabrication} (FFF). Dabei wird ein Kunststofffilament aufgeschmolzen
+		\emph{Fused Depositing Modeling} (FDM), aus Markenrechtsgründen auch bekannt als
+		\emph{Fused Filament Fabrication} (FFF). Dabei wird ein Kunststofffilament geschmolzen
 		und durch eine Düse extrudiert. Die Düse (\emph{Hotend}) fährt hierbei während des
-		extrudierens wie in Abbildung \ref{fig:fdm} dargestellt die Schnittebene ab, sodass
+		Extrudierens wie in Abbildung \ref{fig:fdm} dargestellt die Schnittebene ab, sodass
 		Ebene für Ebene das gewünschte Objekt aufgeschichtet wird. Schichtdicken sind bei diesem
 		Verfahren üblicherweise zwischen \SI{0,025}{\milli\meter} und \SI{1,25}{\milli\meter}
 		\cite{wikipedia2021fused}.
 
-		Obwohl dieses Verfahren relativ einfach umzusetzen ist wird es durch verschiedene Faktoren
-		limitiert. So ist beispielsweise für die Qualität die Form des zu druckenden Objekts
-		relevant. Außerdem ist dieses Verfahren auf bestimmte Materialien beschränkt, wie
+		Obwohl dieses Verfahren relativ einfach umzusetzen ist, wird es durch verschiedene
+		Faktoren limitiert. So ist beispielsweise für die Qualität die Form des zu druckenden
+		Objekts relevant. Außerdem ist dieses Verfahren auf bestimmte Materialien beschränkt, wie
 		Thermoplaste und Formwachse. Die Druckbarkeit wird nicht zuletzt auch durch die
 		Gravitation beschränkt, sodass je nach Form auch Stützstrukturen (\emph{support}, siehe
 		Abbildung \ref{fig:fdm}) erforderlich sein können \cite{wikipedia2021fused}.
@@ -39,9 +39,9 @@
 			\includegraphics[width=0.9\textwidth]{chapter/main/img/fdm.png}
 			\caption[Schematische Darstellung des FDM-/FFF-Verfahrens]{Schematische Darstellung
 			einer möglichen Konfiguration des als FDM oder FFF bekannten 3D-Druck-Verfahrens. Ein
-			Fördermechanismus schiebt das Filament durch eine aufgeheizte Düse. Durch eine
-			Bewegung der Düse und/oder des Druckbetts in mindestens 3 Achsen erfolgt eine Formung
-			des gewünschten Objektes Ebene für Ebene. \cite[S. 114]{horsch20143d}}
+			Fördermechanismus (\emph{Extruder}) schiebt das Filament durch eine aufgeheizte Düse.
+			Durch eine Bewegung der Düse und/oder des Druckbetts in mindestens 3 Achsen erfolgt
+			eine Formung des gewünschten Objektes Ebene für Ebene. \cite[S. 114]{horsch20143d}}
 			\label{fig:fdm}
 		\end{figure}
 
@@ -60,22 +60,23 @@
 			\includegraphics[width=0.9\textwidth]{chapter/main/img/sls_slm.png}
 			\caption[Schematische Darstellung des SLM-Verfahrens]{Schematische Darstellung des
 			SLM-Verfahrens. Der bewegliche Spiegel sorgt für eine präzise Positionierung des
-			Laser-Punktes. Während sich der Boden des Vorrats\-gefäßes im Prozess anhebt, senkt
+			Laserpunktes. Während sich der Boden des Vorrats\-gefäßes im Prozess anhebt, senkt
 			sich der Boden des Druckraums ab. \cite[S. 119]{horsch20143d}}
 			\label{fig:slm_sls}
 		\end{figure}
 
 		Das Druckbett wird üblicherweise um \SI{30}{\micro\meter} bis \SI{100}{\micro\meter}
-		abgesenkt \cite{song2012effects}. Zu den am häufigsten verwendete Materialien, die beim
-		SLM-Verfahren verwendet werden, zählen Titanlegierungen, insbesondere das in der Luft- und
-		Raumfahrt populäre Ti6Al4V \cite{song2012effects,shi2016performance,brandl2012morphology}. % maybe sadali2020influence, too? but it refs brandl2012morphology
-		Aluminiumlegierungen werden ebenfalls verwendet
-		\cite[je Al-Si-10Mg]{yan2020comparative,zou2017study}.
+		abgesenkt \cite{song2012effects}, wobei diese Werte nicht als Minimal- oder Maximalwerte
+		zu verstehen sind \cite{shi2016performance}. Zu den am häufigsten verwendete Materialien,
+		die beim SLM-Verfahren verwendet werden, zählen Titanlegierungen, insbesondere das in der
+		Luft- und Raumfahrt populäre Ti-6Al-4V
+		\cite{song2012effects,shi2016performance,brandl2012morphology}. Aluminiumlegierungen
+		werden ebenfalls verwendet \cite[je Al-Si-10Mg]{yan2020comparative,zou2017study}.
 
-	\subsection{Beobachtbare Defekte im fertigen Bauteil}
+	\subsection{Beobachtbare Defekte im gefertigten Objekt}
 		\subsubsection{Porenbildung}
 		Aufgrund verschiedener physikalischer Phänomene treten während des Verfahrens Vorgänge auf,
-		die sich in Materialdefekten bemerkbar machen. Einer der bekannstesten Defekte ist die
+		die sich in Defekten bemerkbar machen. Einer der bekanntesten Defekte ist die
 		\emph{Porenbildung}. Mit einer Größe von weniger als \SI{100}{\micro\meter} zählen diese
 		Gaseinschlüsse zu den kleinsten der hier aufgeführten Defekte \cite{zhang2017defect}. Es
 		werden zwei verschiedene Gasquellen unterschieden. Während eine Quelle des dafür
@@ -86,15 +87,14 @@
 		sein. Das Gas dringt hierbei während des Schmelzprozesses in die Schmelze ein, erreicht
 		aber aufgrund einer hohen Kühlrate die Oberfläche nicht vor dem Erstarren, sodass beim
 		Erhärten des Materials ein Lufteinschluss die Folge ist. Aus diesem Grund haben Poren eine
-		näherungsweise sphärische Form. Sie sind üblicherweise im im gefertigten Bauteil
+		näherungsweise sphärische Form. Sie sind üblicherweise im im gefertigten Objekt
 		gleichverteilt aufzufinden. Das komplette Eliminieren aller Poren gilt als sehr schwer
 		\cite{zhang2017defect}. Galy et al. zufolge hat die Porengröße und -form einen
-		entscheidenden Einfluss auf die Qualität des Bauteils. Größere Makroporen verschlechtern
-		die Qualität stärker als kleinere Mikroporen, wobei sich mehrere Mikroporen während einer
-		Hitzebehandlung zu größeren Makroporen vereinigen können. Eine stärkere Entrundung der
-		sphärischen Form der Poren kann eine Ursache von Rissen im Bauteil sein
-		\cite{galy2018main}. Poren unterschiedlicher Größe sind in Abbildung
-		\ref{fig:defects_porosities} zu sehen.
+		entscheidenden Einfluss auf die Qualität des Endproduktes. Größere Makroporen
+		verschlechtern die Qualität stärker als kleinere Mikroporen, wobei sich mehrere Mikroporen
+		zu größeren Makroporen vereinigen können. Eine stärkere Entrundung der sphärischen Form
+		der Poren kann eine Ursache von Rissen im Objekt sein \cite{galy2018main}. Poren
+		unterschiedlicher Größe sind in Abbildung \ref{fig:defects_porosities} zu sehen.
 
 		\begin{figure}[!ht]
 			\centering
@@ -110,17 +110,17 @@
 		niedrige Energie vermindert sich die Breite des Schmelzbades. Bei unzureichender
 		Überlappung der Bahnen kann dies zu fehlender Haftung zwischen diesen (sogenannten
 		\emph{bonding defects} Abbildung \ref{fig:defects_lof} a)) führen. Außerdem resultiert
-		die mangelnde Aufschmelzung in zahlreichen Pulvereinschlüssen (Abbildung
-		\ref{fig:defects_lof} b)). Sollte die Energiezufuhr sogar unzureichend sein, um die
-		gesamte Schichthöhe zu penetrieren, führt dies zu mangelhafter Bindung zwischen den
-		Ebenen. Aus diesen Gründen sind Defekte die mangelnde Verschmelzung betreffend
-		hauptsächlich zwischen den Bahnen einer Ebene und zwischen den Ebenen selbst zu finden. Da
-		diese Defekte eine raue Oberfläche erzeugen, wird der Materialfluss der nächsten Ebene
-		ebenfalls gestört, sodass Zwischenebenendefekte auftreten können, die graduell durch
-		mehrere Ebenen propagieren und somit Defekte zur Folge haben, die sich über mehrere Ebenen
-		erstrecken. Legierungen mit oxidierbaren Bestandteilen wie Al-Si-10Mg können durch einen
-		entstehenden Oxidfilm und der damit verbundenen verminderten Benetzbarkeit ebenfalls
-		Probleme mit der Aneinanderbindung von Bahnen haben \cite{zhang2017defect}.
+		die LOF in zahlreichen Pulvereinschlüssen (Abbildung \ref{fig:defects_lof} b)). Sollte die
+		Energiezufuhr sogar unzureichend sein, um die gesamte Schichthöhe zu penetrieren, führt
+		dies zu mangelhafter Bindung zwischen den Ebenen. Aus diesen Gründen sind Defekte die
+		LOF betreffend hauptsächlich zwischen den Bahnen einer Ebene und zwischen den Ebenen
+		selbst zu finden. Da diese Defekte eine raue Oberfläche erzeugen, wird der Materialfluss
+		der nächsten Ebene ebenfalls gestört, sodass Zwischenebenendefekte auftreten können, die
+		graduell durch mehrere Ebenen propagieren und somit Defekte zur Folge haben, die sich über
+		mehrere Ebenen erstrecken. Legierungen mit oxidierbaren Bestandteilen wie Al-Si-10Mg
+		können durch einen entstehenden Oxidfilm und der damit verbundenen verminderten
+		Benetzbarkeit ebenfalls Probleme mit der Aneinanderbindung von Bahnen haben
+		\cite{zhang2017defect}.
 
 		\begin{figure}[!ht]
 			\centering
@@ -132,20 +132,20 @@
 		\end{figure}
 
 		\subsubsection{Risse}
-		Während des Schmelzprozesses herschen nach dem Schmelzen Kühlraten von bis zu
-		\SI{e8}{\kelvin\per\second}. Der dadruch entstehende Temperaturgradient und die damit
+		Während des Schmelzprozesses herrschen nach dem Schmelzen Kühlraten von bis zu
+		\SI{e8}{\kelvin\per\second}. Der dadurch entstehende Temperaturgradient und die damit
 		verbundene unterschiedlich starke Kompression führt zu hohen Spannungen im Material.
 		Diese Spannungen können nun dafür sorgen, dass Risse (\emph{cracks}) entstehen und dass
 		diese weiter durch das Material propagieren. Abbildung \ref{fig:defects_cracks} zeigt gut
 		verschiedene Stellen eines Risses, der sich an einer Oberfläche gebildet hat und weiter in
-		das Bauteil hineinpropagiert ist \cite{zhang2017defect}. Wie bereits in Abschnitt
-		\emph{Porenbildung} erwähnt können auch nicht-sphärische Poren besonders begünstigend auf
-		die Rissbildung wirken \cite{galy2018main}.
+		das gefertigte Objekt hineinpropagiert ist \cite{zhang2017defect}. Wie bereits in
+		Abschnitt \emph{Porenbildung} erwähnt können auch nicht-sphärische Poren besonders
+		begünstigend auf die Rissbildung wirken \cite{galy2018main}.
 
 		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=0.7\textwidth]{chapter/main/img/defects/cracks_part.png}
-			\caption{Aufnahme des Rands eines produziertes Objektes, von dem ein Riss ausgeht. Es
+			\caption{Aufnahme des Rands eines produzierten Objektes, von dem ein Riss ausgeht. Es
 			ist gut erkennbar wie der Riss von Rand ausgehen in das Objekt hineinpropagiert ist.
 			\cite{zhang2017defect}}
 			\label{fig:defects_cracks}
@@ -208,7 +208,7 @@
 		Einzelkraft zwischen zwei Teilchen $i$ und $j$ sowie $U_i$ das vom Teilchen $i$ ausgehende
 		Potential und $\nabla_i$ der Gradient in der Koordinate $\uvec{x}_i$. Da diese
 		Bewegungsgleichungen für große Teilchenzahlen $N$ im Allgemeinen nicht analytisch lösbar
-		sind \todo[color=green]{Bezug auf NLD-Vorlesung bzgl. Unlösbarkeit?} bedarf es einer
+		sind, \todo[color=green]{Bezug auf NLD-Vorlesung bzgl. Unlösbarkeit?} bedarf es einer
 		Simulation zur numerischen Integration dieser.
 
 		Bei der Molekulardynamik (\emph{MD}) werden also Systemeigenschaften explizit anhand der
@@ -228,8 +228,9 @@
 			Molekulardynamik mithilfe eines beliebigen iterativen Integrators. Im ersten Schritt
 			(links) wird die auf das rote Teilchen wirkende Gesamtkraft bestimmt. Gleiches
 			passiert auch für die anderen Teilchen. Im nächsten Schritt (rechts) werden nun alle
-			Teilchen entsprechend der auf sie wirkenden Kräfte verschoben un bilden somit in guter
-			Näherung die Trajektorie der jeweiligen Teilchen. \cite{sonntag2011computer}}
+			Teilchen entsprechend der auf sie wirkenden Kräfte verschoben und bilden somit in
+			guter Näherung die Trajektorie der jeweiligen Teilchen.
+			\cite[S. 52]{sonntag2011computer}}
 			\label{fig:scheme_md}
 		\end{figure}
 
@@ -276,8 +277,10 @@
 			\right] \label{eq:force_lj}
 		\end{align}
 
+	\subsection{Reduzierte Einheiten}
+
 	\subsection{Numerische Integration von newtonschen Bewegungsgleichungen}
-		Die wohl simpelste Methode der numerische Integration ist das \emph{Euler-Verfahren}.
+		Die wohl simpelste Methode der numerischen Integration ist das \emph{Euler-Verfahren}.
 		Hierbei wird das Taylorpolynom ersten Grades der Trajektorie verwendet und alle höheren
 		Terme verworfen. Mithilfe der Diskretisierung des Zeitschritts \dt lässt sich von einem
 		Integrationsschritt $n$ näherungsweise auf den nächsten $n+1$ schließen:
@@ -289,8 +292,8 @@
 		Hierbei bezeichnet $\dot{\uvec{x}}$ die erste Ableitung von $x$ nach der Zeit,
 		$\ddot{\uvec{x}}$ die zweite Ableitung, und so weiter. Das Problem, welches dem
 		Euler-Verfahren innewohnt, ist die Tatsache, dass es nicht symplektisch ist und somit
-		nicht die für ein solches System notwendige Forderung nach Energieerhaltung erfüllen kann
-		\cite[S. 6f]{klein2013klassische}.
+		nicht die für ein mikrokanonisches Ensemble notwendige Forderung nach Energieerhaltung
+		erfüllen kann \cite[S. 6f]{klein2013klassische}.
 
 		Ein symplektischer Algorithmus ist der \emph{Verlet-Algorithmus}. Er entsteht durch zwei
 		Taylorentwicklungen 4. Ordnung der Trajektorie wie in den Gleichungen
@@ -331,8 +334,116 @@
 				\label{eq:velocity_verlet}
 		\end{align}
 
-	\subsection{Notwendige Näherungen und Vereinfachungen}
+	\subsection{Implementierung des Lasers}
+		Bestrahlt man ein Material mit einem Laser, so regen die Photonen die Schwingungszustände
+		der Atome an und sorgt somit dafür, dass sich das Material lokal aufheizt
+		\cite{zhigilei1997velocity}. Nach Gleichung \eqref{eq:avg_kin_energy} ist hierbei die
+		mittlere kinetische Energie $\left\langle E_\text{kin} \right\rangle$ proportional zur
+		Temperatur $T$, wobei $f$ die Anzahl der Freiheitsgrade und $k_\text{B}$ die
+		Boltzmannkonstante ist.
+
+		\begin{align}
+			\left\langle E_\text{kin} \right\rangle &= \frac{f}{2} k_\text{B} T
+				\label{eq:avg_kin_energy}
+		\end{align}
+
+		Die wohl direkteste Implementierung des Aufheizens durch einen Laser ist also das
+		Skalieren der Teilchengeschwindigkeiten gemäß eines durch Gleichung
+		\eqref{eq:avg_kin_energy} geforderten Faktors für die Geschwindigkeiten. Sei nun die
+		gewollte Energieänderung $\dx[E]$. Mit $E_\text{kin} \propto \dot{\uvec{x}}^2$ folgt
+		also für den Faktor mit $\dot{\uvec{x}}(t + \dt) = a\dot{\uvec{x}}(t)$
+
+		\begin{align}
+			a^2 &= \frac{E_\text{kin}(t + \dt)}{E_\text{kin}(t)}
+			&\Rightarrow&&
+			a &= \sqrt{\frac{E_\text{kin}(t) + \dx[E]}{E_\text{kin}(t)}}
+				= \sqrt{1 + \frac{\dx[E]}{E_\text{kin}(t)}}
+		\end{align}
+
+		Da $E_\text{kin}(t)$ durch Summation aller Geschwindigkeitsquadrate einfach bestimmt
+		werden kann, bleibt als unbekannte die gewünschte Einbringung $\dx[E]$. Um diese zu
+		bestimmen wird ein gaußförmiges Intensitätsprofil nach Gleichung \eqref{eq:gauss_profile}
+		angenommen.
+
+		\begin{align}
+			I(x,y) = I(r) &= I_0 \exp\left(-a r^2\right) \label{eq:gauss_profile}
+		\end{align}
+
+		Es gilt $a = \frac{1}{2\sigma^2}$, wobei $\sigma$ die Varianz der Gauß-Funktion ist.
+		Wird die Gauß-Funktion normiert, so hängt der Vorfaktor, und damit auch die Höhe der
+		Funktion, von der Varianz, und damit von der Breite der Funktion, ab
+		(Abbildung \ref{fig:gauss}).
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\textwidth]{chapter/main/plt/gauss.eps}
+			\caption{Eine auf 1 normierte Gauß-Funktion wird mit steigender Breite höher und
+			umgekehrt}
+			\label{fig:gauss}
+		\end{figure}
+
+		Es ist offensichtlich, dass das Profil nur von der radialen Komponente $r$ der
+		zylindrischen Koordinaten entlang der Strahlrichtung abhängig ist. Für einen Laser in
+		$z$-Richtung ist $r^2 = x^2 + y^2$. Eine Integration entlang der Ebene senkrecht zur
+		Strahlrichtung muss die Gesamtleistung $P_\text{Ges}$ des Lasers ergeben.
+
+		\begin{align}
+			P_\text{Ges} &= \int_{\mathbb{R}^2} I(r) \dx\dx[y]
+				= I_0 \int_0^{2\pi} \dx[\theta] \int_0^\infty \exp\left(-a r^2\right) \dx[r]
+		\end{align}
+
+		Drückt man die Varianz nun als Halbwertsbreite $\fwhm = 2\sqrt{2 \ln2}\sigma$ aus, so
+		ergibt sich für die maximale Intensität $I_0$
+
+		\begin{align}
+			I_0 &= \frac{P_\text{Ges}}{\pi} \frac{4\ln2}{\fwhm^2}
+		\end{align}
+
+		Da in der Herleitung bisher noch keine Intensitätsabschwächung nach dem
+		\emph{Lambert-Beer-Gesetz} mit der Absorption $\mu$ erfolgt ist, wird die Intensität mit
+		dem entsprechenden Faktor multipliziert. Ebenso wird direkt der Reflexionskoeffizient
+		$R$ mit eingebunden.
+
+		\begin{align}
+			I(x,y,z) &= \exp\left(-\mu z\right) \cdot (1-R) \cdot I(x,y)
+			\label{eq:intensity}
+		\end{align}
+
+		Um daraus nun die diskrete Energieänderung $\dx[E]$ zu erhalten, bedarf es einer
+		Betrachtung der Größen pro diskreter Volumeneinheit $\dx[V]$ und pro Zeitschritt $\dt$:
+
+		\begin{align}
+			\dx[I] &= \frac{\dx[E]}{\dx[A]\cdot\dt}
+			&\Leftrightarrow&&
+			\dx[E] &= \dx[I] \cdot \dx[A] \cdot \dt
+		\end{align}
+
+		Erweitern mit $\dx[z]/\dx[z]$ führt nun auf die Form in Gleichung
+		\eqref{eq:energy_diff_1}.
+
+		\begin{align}
+			\dx[E] &= \frac{\dx[I]}{\dx[z]} \cdot \dx[z] \cdot \dx[A] \cdot \dt
+				= \frac{\dx[I]}{\dx[z]} \cdot \dx[V] \cdot \dt
+			\label{eq:energy_diff_1}
+		\end{align}
+
+		Zwar ist $\dx[I]/\dx[z]$ ein Differenzenquotient, im diskreten Kontext aber kommt diesem
+		die gleiche Bedeutung wie die Ableitung $\partial_z I$ zu. Diese ist durch Gleichung
+		\eqref{eq:intensity} bekannt, sodass der Gesamtausdruck für die Energieänderung nun
+
+		\begin{align}
+			\dx[E] &= (1-R) \cdot \mu \cdot \exp\left(-\mu z\right)
+				\cdot \frac{P_\text{Ges}}{\pi \sigma_\text{sc}^2}
+				\cdot \exp\left(-\frac{x^2 + y^2}{\sigma_\text{sc}^2}\right)
+				\cdot \dx[V] \cdot \dt
+		\end{align}
+
+		lautet. Zu beachten ist, dass $\sigma_\text{sc}^2 = 2\sigma^2 = \fwhm^2/(4\ln2)$ nicht die
+		Varianz ist, sondern nur der übersichtlicheren Darstellung dient.
+
+	\subsection{Näherungen und Vereinfachungen}
+		\todo[color=red]{Implementierung des Lasers: Lambert-Beer-Gesetz wie es implementiert ist eigtl nur für ebene Oberflächen gültig.}
 		\todo[color=red]{Kurzes Kapitel darüber warum Aluminium? Bzw über Alu an sich?}
 		\todo[color=red]{Kleinere Skala und größere Gravitation mithilfe von \cite{glosli2007extending} motivieren.}
-	\subsection{Implementierung des Laser}
+
 	%\subsection{Besonderheiten bei der Simulationssoftware IMD}
