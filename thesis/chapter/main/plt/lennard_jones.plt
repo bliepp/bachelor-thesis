@@ -23,7 +23,7 @@ U(x) = 4*(f(x)**2 - f(x))
 #OUTPUT AREA
 #set term pdf enhanced color font "Helvetica,14" size 16,9
 #set out "daten.pdf"
-set term postscript eps enhanced color font "Helvetica,22"
+set term postscript eps enhanced color font "Helvetica,20"
 set out "lennard_jones.eps"
 
 

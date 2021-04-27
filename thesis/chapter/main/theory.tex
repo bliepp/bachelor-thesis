@@ -34,7 +34,7 @@
 		Gravitation beschränkt, sodass je nach Form auch Stützstrukturen (\emph{support}, siehe
 		Abbildung \ref{fig:fdm}) erforderlich sein können \cite{wikipedia2021fused}.
 
-		\begin{figure}[ht]
+		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=0.9\textwidth]{chapter/main/img/fdm.png}
 			\caption[Schematische Darstellung des FDM-/FFF-Verfahrens]{Schematische Darstellung
@@ -55,7 +55,7 @@
 		und verschmilzt das Pulver zu einer festen Form.
 		\todo[color=red]{Quelle dazu finden bzw. nennen. Florian Horsch?}
 
-		\begin{figure}[ht]
+		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=0.9\textwidth]{chapter/main/img/sls_slm.png}
 			\caption[Schematische Darstellung des SLM-Verfahrens]{Schematische Darstellung des
@@ -96,7 +96,7 @@
 		\cite{galy2018main}. Poren unterschiedlicher Größe sind in Abbildung
 		\ref{fig:defects_porosities} zu sehen.
 
-		\begin{figure}[ht]
+		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=0.7\textwidth]{chapter/main/img/defects/porosities.png}
 			\caption{Poren sphärischer Form unterschiedlicher Größe entstehen durch Gaseinschlüsse
@@ -122,7 +122,7 @@
 		entstehenden Oxidfilm und der damit verbundenen verminderten Benetzbarkeit ebenfalls
 		Probleme mit der Aneinanderbindung von Bahnen haben \cite{zhang2017defect}.
 
-		\begin{figure}[ht]
+		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=0.7\textwidth]{chapter/main/img/defects/lack_of_fusion.png}
 			\caption{a) Zwei Bahnen mit schlechter Verbindung durch mangelnde Überlappung
@@ -142,7 +142,7 @@
 		\emph{Porenbildung} erwähnt können auch nicht-sphärische Poren besonders begünstigend auf
 		die Rissbildung wirken \cite{galy2018main}.
 
-		\begin{figure}[ht]
+		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=0.7\textwidth]{chapter/main/img/defects/cracks_part.png}
 			\caption{Aufnahme des Rands eines produziertes Objektes, von dem ein Riss ausgeht. Es
@@ -157,7 +157,7 @@
 		beim SLM-Prozess variierbaren Parameter ist in Abbildung \ref{fig:scheme_parameters} zu
 		finden.
 
-		\begin{figure}[ht]
+		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=\textwidth]{chapter/main/img/scheme_parameters_2.png}
 			\caption{Eine Übersicht aller beim SLM-Verfahren einstellbaren Parameter nach
@@ -174,9 +174,13 @@
 		Pulverpartikel von Interesse ist, werden im weiteren Verlauf der Bahnabstand und die
 		Ebenenhöhe nicht weiter diskutiert.
 
+		Um klarzustellen, welch drastischen Einfluss die Variation von Parametern auf das Ergebnis
+		haben kann, wird als konkretes Beispiel der Einfluss der Lasergeschwindigkeit beim
+		SLM-Verfahren diskutiert.
+
 		\todo[color=red]{Paper weiterlesen und verstehen, was zur Hölle da eigentlich abgeht?}
 
-		\begin{figure}[ht]
+		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=0.8\textwidth]{chapter/main/img/slm_parameters.jpg}
 			\caption{Darstellung und räumliche Einordnung der wichtigsten einstellbaren Parameter
@@ -187,51 +191,90 @@
 
 \section{Molekulardynamische Modellierung von SLM}
 	\subsection{Grundlegende Funktionsweise der Molekulardynamik (MD)}
-		Um die Trajektorien aller Atome oder Moleküle in einem System großer Teilchenzahl $N$ zu
-		bestimmen, bedarf es der Lösung der zugehörigen Bewegungsgleichungen, wie sie in Gleichung
+		Um die Trajektorien aller Teilchen in einem System großer Teilchenzahl $N$ zu bestimmen,
+		bedarf es der Lösung der zugehörigen Bewegungsgleichungen, wie sie in Gleichung
 		\eqref{eq:newtone_dgl} zu sehen sind.
 
 		\begin{align}
 			m_i \ddot{\uvec{x}}_i &= \uvec{F}_i
 			& \text{mit} &&
-			\uvec{F}_{i} &= \sum_{\substack{j=0\\j \neq i}}^{N-1} \uvec{F}_{i,j}
+			\uvec{F}_{i} &= \sum_{\substack{j=0\\j \neq i}}^{N-1} \uvec{F}_{ij}
 			= -\sum_{\substack{j=0\\j \neq i}}^{N-1} \nabla_i U_j = -\nabla_i U
 			\label{eq:newtone_dgl}
 		\end{align}
 
-		Hierbei ist $m_i$ die Masse und $\uvec{x}_i$ der Ortsvektor des Teilchens $i$ und
-		$\uvec{F}_{i}$ die vektorielle Kraft auf das Teilchen $i$. Weiterhin ist $\uvec{F}_{i,j}$
-		die Einzelkraft zwischen zwei Teilchen $i$ und $j$ sowie $U_i$ das vom Teilchen $i$
-		ausgehende Potential und $\nabla_i$ der Gradient der Koordinate $\uvec{x}_i$. Da diese
+		Hierbei ist $m_i$ die Masse des Teilchens $i$, $\uvec{x}_i$ der Ortsvektor von diesem und
+		$\uvec{F}_{i}$ die vektorielle Gesamtkraft auf dieses. Weiterhin ist $\uvec{F}_{ij}$ die
+		Einzelkraft zwischen zwei Teilchen $i$ und $j$ sowie $U_i$ das vom Teilchen $i$ ausgehende
+		Potential und $\nabla_i$ der Gradient in der Koordinate $\uvec{x}_i$. Da diese
 		Bewegungsgleichungen für große Teilchenzahlen $N$ im Allgemeinen nicht analytisch lösbar
-		sind \todo[color=green]{Bezug auf NLD-Vorlesung bzgl. Unlösbarkeit?} bedarf es einer Simulation zur
-		numerischen Integration dieser. Ein Lösungsansatz zur Beschreibung der Einzeltrajektorien
-		aller Atome oder Moleküle in einem System ist die Molekulardynamik.
+		sind \todo[color=green]{Bezug auf NLD-Vorlesung bzgl. Unlösbarkeit?} bedarf es einer
+		Simulation zur numerischen Integration dieser.
 
-		Bei der Molekulardynamik werden also Systeme anhand der zugrundeliegenden Wechselwirkung
-		zwischen den Teilchen beschrieben \cite{allen2004introduction}.
+		Bei der Molekulardynamik (\emph{MD}) werden also Systemeigenschaften explizit anhand der
+		zugrundeliegenden Wechselwirkung zwischen den Teilchen bestimmt, indem in einem
+		iterativen Verfahren alle Bewegungsgleichungen explizit gelöst werden. Das bedeutet
+		konkret: In einem Schritt werden die Kräfte $F_{ij}$, die von allen anderen Teilchen
+		$j \neq i$ auf ein Teilchen $i$ wirken errechnet. Im nächsten Schritt resultieren daraus
+		die nächsten Werte der Phasenraumkoordinaten. Um eine gewisse Zeitspanne $t$ zu
+		beschreiben wird dieser Vorgang nun mehrmals iterativ wiederholt
+		\cite{allen2004introduction}. Abbildung \ref{fig:scheme_md} erläutert die Vorgehensweise
+		am Beispiel eines beliebigen Teilchens in direkter Umgebung weniger anderer Teilchen.
+
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.8\textwidth]{chapter/main/img/scheme_md.png}
+			\caption{Schematische Darstellung der Trajektorienerstellung bei der klassischen
+			Molekulardynamik mithilfe eines beliebigen iterativen Integrators. Im ersten Schritt
+			(links) wird die auf das rote Teilchen wirkende Gesamtkraft bestimmt. Gleiches
+			passiert auch für die anderen Teilchen. Im nächsten Schritt (rechts) werden nun alle
+			Teilchen entsprechend der auf sie wirkenden Kräfte verschoben un bilden somit in guter
+			Näherung die Trajektorie der jeweiligen Teilchen. \cite{sonntag2011computer}}
+			\label{fig:scheme_md}
+		\end{figure}
 
 		Das am weitesten verbreitete Potential für klassische Molekulardynamik mit ungeladenen
 		Teilchen ist das Lennard-Jones-Potential nach Gleichung \eqref{eq:potential_lj}.
 
 		\begin{align}
-			U_\text{LJ}(r) &= 4\epsilon \left[
+			U^\text{LJ}(r) &= 4\epsilon \left[
 				\left(\frac{\sigma}{r}\right)^{12}
 				-
 				\left(\frac{\sigma}{r}\right)^{6}
 			\right] \label{eq:potential_lj}
 		\end{align}
 
-		Wie in Abbildung \ref{fig:potential_lj} zu sehen besteht es aus einer Starken, aber kurzreichweitigen, abstoßenden
-		Komponente und einer schwächeren, aber langreichweitigeren, anziehenden Komponente.
+		Wie in Abbildung \ref{fig:potential_lj} zu sehen besteht es aus einer stärkeren, aber
+		kurzreichweitigen, attraktiven Komponente und einer schwächeren, aber langreichweitigeren,
+		attraktiveren Komponente.
 
-		\begin{figure}[ht]
+		\begin{figure}[!ht]
 			\centering
-			\includegraphics[width=0.7\textwidth]{chapter/main/plt/lennard_jones.eps}
+			\includegraphics[width=0.8\textwidth]{chapter/main/plt/lennard_jones.eps}
 			\caption{Auftragung der Funktion in Gleichung \eqref{eq:potential_lj} in Einheiten
 			der Parameter $\epsilon$ und $\sigma$}
 			\label{fig:potential_lj}
 		\end{figure}
+
+		Da die aus dem Potential folgende Kraft lediglich entlang des Richtungsvektors
+		$\uvec{r}_{ij} = \uvec{x}_j - \uvec{x}_i$ wirkt, ist eine rein radiale Betrachtung in
+		Kugelkoordinaten nach Gleichung \eqref{eq:force_lj} ausreichend. Da für jedes der $N$
+		Teilchen $N-1$ Einzelkräfte berechnet werden müssen, skaliert die Anzahl der Berechnungen
+		mit $N(N-1)$ ($\rightarrow N^2$ für große $N$). Durch Newtons drittes Gesetz
+		$\uvec{F}_{ij} = -\uvec{F}_{ji}$ lässt sich die Anzahl der expliziten Kraftberechnungen
+		halbieren, wobei das Skalierungsverhalten weiterhin quadratisch bleibt.
+
+		\begin{align}
+			\uvec{F}_{ij} &= -\nabla_i U^\text{LJ}\left(
+				\left\|\uvec{x}_i - \uvec{x}_j\right\|
+			\right) \nonumber
+			&\Rightarrow&&
+			F_{ij}(r) &= 24\epsilon \frac{\uvec{r}_{ij}}{r^2} \left[
+				2\left(\frac{\sigma}{r}\right)^{12}
+				-
+				\left(\frac{\sigma}{r}\right)^{6}
+			\right] \label{eq:force_lj}
+		\end{align}
 
 	\subsection{Numerische Integration von newtonschen Bewegungsgleichungen}
 		Die wohl simpelste Methode der numerische Integration ist das \emph{Euler-Verfahren}.
@@ -272,8 +315,13 @@
 				+ \BigO\left(\dt^4\right) \label{eq:verlet}
 		\end{align}
 
-		Häufiger ist jedoch der dazu äquivalente \emph{Velocity-Verlet-Algorithmus} aus Gleichung
-		\eqref{eq:velocity_verlet} in Verwendung.
+		Wie auch in der für diese Arbeit genutzten Simulationssoftware \emph{IMD}
+		\cite{stadler1997imd} wird jedoch für MD-Simulationen häufig der zum Verlet-Verfahren
+		äquivalente und selbststartende \emph{Velocity-Verlet-Algorithmus} aus Gleichung
+		\eqref{eq:velocity_verlet} verwendet. Durch die Äquivalenz der beiden Algorithmen bleibt
+		die symplektische Natur erhalten, jedoch ist der Algorithmus nun geschwindigkeitsabhängig.
+		In der klassischen MD ist dies jedoch kein Problem, da die Geschwindigkeiten ohnehin von
+		Interesse für manche Größen (wie beispielsweise die Temperatur des Systems) sind.
 
 		\begin{align}
 			\uvec{x}_{n+1} &= \uvec{x}_n + \dot{\uvec{x}}\dt
@@ -287,4 +335,4 @@
 		\todo[color=red]{Kurzes Kapitel darüber warum Aluminium? Bzw über Alu an sich?}
 		\todo[color=red]{Kleinere Skala und größere Gravitation mithilfe von \cite{glosli2007extending} motivieren.}
 	\subsection{Implementierung des Laser}
-	\subsection{Besonderheiten bei der Simulationssoftware IMD}
+	%\subsection{Besonderheiten bei der Simulationssoftware IMD}
