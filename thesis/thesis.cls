@@ -57,7 +57,8 @@
 \newcommand{\ddx}[1][x]{\ensuremath{\frac{\dinf}{\dinf #1}}\xspace}
 \newcommand{\partdx}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}\xspace}
 
-\newcommand{\dt}[1][t]{\dx[#1]\xspace}
+\newcommand{\dt}[1][t]{\dx[#1]}
+\newcommand{\fwhm}{\ensuremath{\text{FWHM}}\xspace}
 
 %% vector stuff
 \newcommand{\rvec}[1]{\ensuremath{\left( \begin{array}{c}#1\end{array} \right)}\xspace}
