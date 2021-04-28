@@ -52,8 +52,8 @@
 		Drucken einer neuen Ebene hebt sich der Boden des Materialvorrats und eine Walze
 		(\emph{Beschichtungseinheit}) überträgt das dosierte Material in den Druckraum, dessen
 		Druckbett abgesenkt wird. Ein beweglicher Laser fährt nun die gewünschte Schnittebene ab
-		und verschmilzt das Pulver zu einer festen Form.
-		\todo[color=red]{Quelle dazu finden bzw. nennen. Florian Horsch?}
+		und verschmilzt das Pulver zu einer festen Form \cite{horsch20143d}.
+		%\todo[color=red]{Quelle dazu finden bzw. nennen. Florian Horsch?}
 
 		\begin{figure}[!ht]
 			\centering
@@ -69,9 +69,9 @@
 		abgesenkt \cite{song2012effects}, wobei diese Werte nicht als Minimal- oder Maximalwerte
 		zu verstehen sind \cite{shi2016performance}. Zu den am häufigsten verwendete Materialien,
 		die beim SLM-Verfahren verwendet werden, zählen Titanlegierungen, insbesondere das in der
-		Luft- und Raumfahrt populäre Ti-6Al-4V
+		Luft- und Raumfahrt populäre Ti6Al4V
 		\cite{song2012effects,shi2016performance,brandl2012morphology}. Aluminiumlegierungen
-		werden ebenfalls verwendet \cite[je Al-Si-10Mg]{yan2020comparative,zou2017study}.
+		werden ebenfalls verwendet \cite[je AlSi10Mg]{yan2020comparative,zou2017study}.
 
 	\subsection{Beobachtbare Defekte im gefertigten Objekt}
 		\subsubsection{Porenbildung}
@@ -98,7 +98,7 @@
 
 		\begin{figure}[!ht]
 			\centering
-			\includegraphics[width=0.7\textwidth]{chapter/main/img/defects/porosities.png}
+			\includegraphics[width=0.6\textwidth]{chapter/main/img/defects/porosities.png}
 			\caption{Poren sphärischer Form unterschiedlicher Größe entstehen durch Gaseinschlüsse
 			\cite{zhang2017defect}}
 			\label{fig:defects_porosities}
@@ -117,14 +117,13 @@
 		selbst zu finden. Da diese Defekte eine raue Oberfläche erzeugen, wird der Materialfluss
 		der nächsten Ebene ebenfalls gestört, sodass Zwischenebenendefekte auftreten können, die
 		graduell durch mehrere Ebenen propagieren und somit Defekte zur Folge haben, die sich über
-		mehrere Ebenen erstrecken. Legierungen mit oxidierbaren Bestandteilen wie Al-Si-10Mg
-		können durch einen entstehenden Oxidfilm und der damit verbundenen verminderten
-		Benetzbarkeit ebenfalls Probleme mit der Aneinanderbindung von Bahnen haben
-		\cite{zhang2017defect}.
+		mehrere Ebenen erstrecken. Legierungen mit oxidierbaren Bestandteilen wie AlSi10Mg können
+		durch einen entstehenden Oxidfilm und der damit verbundenen verminderten Benetzbarkeit
+		ebenfalls Probleme mit der Aneinanderbindung von Bahnen haben \cite{zhang2017defect}.
 
 		\begin{figure}[!ht]
 			\centering
-			\includegraphics[width=0.7\textwidth]{chapter/main/img/defects/lack_of_fusion.png}
+			\includegraphics[width=0.6\textwidth]{chapter/main/img/defects/lack_of_fusion.png}
 			\caption{a) Zwei Bahnen mit schlechter Verbindung durch mangelnde Überlappung
 			b) Gut erkennbare Pulvereinschlüsse durch unzureichendes Aufschmelzen des Pulvers
 			in Hohlräumen \cite{zhang2017defect}}
@@ -144,11 +143,23 @@
 
 		\begin{figure}[!ht]
 			\centering
-			\includegraphics[width=0.7\textwidth]{chapter/main/img/defects/cracks_part.png}
+			\includegraphics[width=0.6\textwidth]{chapter/main/img/defects/cracks_part.png}
 			\caption{Aufnahme des Rands eines produzierten Objektes, von dem ein Riss ausgeht. Es
 			ist gut erkennbar wie der Riss von Rand ausgehen in das Objekt hineinpropagiert ist.
 			\cite{zhang2017defect}}
 			\label{fig:defects_cracks}
+		\end{figure}
+
+		\subsubsection{Keyholes}
+		Ssogenannte \emph{Keyholes} treten besonders bei hohen Temperaturen auf. In diesem Fall
+		kann ein Teil des Materials vaporisieren und dann eine V-förmige Furche wie in Abbildung
+		\ref{fig:defects_keyholes} zurücklassen.
+
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.6\textwidth]{chapter/main/img/defects/keyhole.png}
+			\caption{Ein als Keyhole bekannter Defekt \cite{eskandarisabzi2019defect}}
+			\label{fig:defects_keyholes}
 		\end{figure}
 
 	\subsection{Wichtige Parameter und Einfluss der Lasergeschwindigkeit}
@@ -159,7 +170,7 @@
 
 		\begin{figure}[!ht]
 			\centering
-			\includegraphics[width=\textwidth]{chapter/main/img/scheme_parameters_2.png}
+			\includegraphics[width=0.9\textwidth]{chapter/main/img/scheme_parameters_2.png}
 			\caption{Eine Übersicht aller beim SLM-Verfahren einstellbaren Parameter nach
 			Kategorie geordnet \cite{zhang2017defect,aboulkhair2014reducing}}
 			\label{fig:scheme_parameters}
@@ -172,21 +183,41 @@
 		der Pulverschicht bestimmte Ebenenhöhe (\emph{layer thickness})
 		\cite{sadali2020influence}. Da für diese Arbeit die Größenordnung im Bereich der einzelnen
 		Pulverpartikel von Interesse ist, werden im weiteren Verlauf der Bahnabstand und die
-		Ebenenhöhe nicht weiter diskutiert.
-
-		Um klarzustellen, welch drastischen Einfluss die Variation von Parametern auf das Ergebnis
-		haben kann, wird als konkretes Beispiel der Einfluss der Lasergeschwindigkeit beim
-		SLM-Verfahren diskutiert.
-
-		\todo[color=red]{Paper weiterlesen und verstehen, was zur Hölle da eigentlich abgeht?}
+		Ebenenhöhe nicht weiter betrachtet.
 
 		\begin{figure}[!ht]
 			\centering
-			\includegraphics[width=0.8\textwidth]{chapter/main/img/slm_parameters.jpg}
+			\includegraphics[width=0.9\textwidth]{chapter/main/img/slm_parameters.jpg}
 			\caption{Darstellung und räumliche Einordnung der wichtigsten einstellbaren Parameter
 			beim SLM-Druck und ihre üblichen Einheiten \cite{saunders2017x}}
 			\label{fig:slm_parameters}
 		\end{figure}
+
+		Für ein optimales Ergebnis bedarf es natürlich einer optimalen Abstimmung der Parameter
+		aufeinander. Beispielsweise ist für eine Erhöhung der Lasergeschwindigkeit oft eine
+		größere Laserleistung nötig, um das Schnelzen des Materials weiterhin zu gewährleisten.
+
+		Sadali et al. fanden heraus, dass mit steigender Lasergeschwindigkeit die Größe der Poren
+		reduziert wird. Außerdem entstehen weniger Spritzer (\emph{splashing effect}). Anhäufungen,
+		die bei der Auftrennung von instabilen Flüssigspuren durch mangelnde Benetzbarkeit
+		entstehen können (\emph{balling effect}, Abbildung \ref{fig:defects_balling}), werden mit
+		steigender Geschwindigkeit nicht nur weniger, sondern auch kleiner.
+
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.7\textwidth]{chapter/main/img/defects/balling.png}
+			\caption{Der sogenannte \emph{balling effect} entsteht, wenn die Benetzbarkeit der
+			darunter liegenden Schicht nicht ausreicht, sodass sich aus dem geschmolzenen
+			Material kugelförmige Ansammlungen bilden \cite{eskandarisabzi2019defect}}
+			\label{fig:defects_balling}
+		\end{figure}
+
+		Nichtsdestotrotz bedeutet dies nicht unbedingt, dass ein schnellerer Laser grundsätzlich
+		ein bisseres Gesamtergebnis erzielt. Mit höherer Geschwindigkeit treten beispielsweise
+		auch mehr Mikrorisse auf. Während diese durch \emph{Heißisobarisches Pressen} (\emph{HIP})
+		zwar minimiert werden können, treten ab einer gewissen Geschwindigkeit jedoch vermehrt
+		Keyholes auf, deren nachträgliche Reduktion durch HIP nicht möglich ist
+		\cite{sadali2020influence}.
 
 
 \section{Molekulardynamische Modellierung von SLM}
@@ -208,8 +239,8 @@
 		Einzelkraft zwischen zwei Teilchen $i$ und $j$ sowie $U_i$ das vom Teilchen $i$ ausgehende
 		Potential und $\nabla_i$ der Gradient in der Koordinate $\uvec{x}_i$. Da diese
 		Bewegungsgleichungen für große Teilchenzahlen $N$ im Allgemeinen nicht analytisch lösbar
-		sind, \todo[color=green]{Bezug auf NLD-Vorlesung bzgl. Unlösbarkeit?} bedarf es einer
-		Simulation zur numerischen Integration dieser.
+		sind, %\todo[color=green]{Bezug auf NLD-Vorlesung bzgl. Unlösbarkeit?}
+		bedarf es einer Simulation zur numerischen Integration dieser.
 
 		Bei der Molekulardynamik (\emph{MD}) werden also Systemeigenschaften explizit anhand der
 		zugrundeliegenden Wechselwirkung zwischen den Teilchen bestimmt, indem in einem
@@ -377,7 +408,7 @@
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.8\textwidth]{chapter/main/plt/gauss.eps}
-			\caption{Eine auf 1 normierte Gauß-Funktion wird mit steigender Breite höher und
+			\caption{Eine auf 1 normierte Gauß-Funktion wird mit abnehmender Breite höher und
 			umgekehrt}
 			\label{fig:gauss}
 		\end{figure}
@@ -442,8 +473,38 @@
 		Varianz ist, sondern nur der übersichtlicheren Darstellung dient.
 
 	\subsection{Näherungen und Vereinfachungen}
-		\todo[color=red]{Implementierung des Lasers: Lambert-Beer-Gesetz wie es implementiert ist eigtl nur für ebene Oberflächen gültig.}
-		\todo[color=red]{Kurzes Kapitel darüber warum Aluminium? Bzw über Alu an sich?}
-		\todo[color=red]{Kleinere Skala und größere Gravitation mithilfe von \cite{glosli2007extending} motivieren.}
+		%\todo[color=red]{Implementierung des Lasers: Lambert-Beer-Gesetz wie es implementiert ist eigtl nur für ebene Oberflächen gültig.}
+		\subsubsection{Lambert-Beer'sches Gesetz}
+		Eine Näherung, die aus Gründen der einfacheren Implementierung und der besseren
+		Rechenleistung sinnvoll ist, ist eine vereinfachte Anwendung des Lambert-Beer'schen
+		Gesetzes. Während bei diesem Gesetz eigentlich die Länge betrachtet wird, während der sich
+		die elektromagnetischen Wellen tatsächlich im Medium befinden, wird hier für den Eintritt
+		der Absorption ein fixer $z$-Wert angenommen. Dies hat den Grund, dass eine Absorption
+		nach exakten Maßstäben nur durch eine Diskretisierung des Lasers in kleinere Unterstrahlen
+		und eine darauf aufbauende Strahlverfolgung (\emph{Raytracing}) möglich wäre. Dies ist
+		jedoch sehr rechenintensiv und müsste zudem nach jedem Simulationsschritt wiederholt
+		werden. Weil diese Näherung für Geometrien mit in $z$-Richtung homogener Atomverteilung
+		und gerader Oberkante (zum Beispiel quader- oder zylinderförmige Objekte) exakt ist, kann
+		sie als annehmbare Näherung für kugelförmige Anordnungen, wie sie hier verwendet werden,
+		gesehen werden. Zwar führt dies zu einer Änderungen in den Einzeltrajektorien, jedoch ist
+		eine Änderung der makroskopischen Eigenschaften nicht zu erwarten, da die Dynamik des
+		System näherungsweise gleich bleibt.
+
+		\todo[color=red]{Kurzes Kapitel darüber warum Aluminium bzw über Alu an sich. zB AluSi10Mg
+		enthält nach DIN EN 1706 ca. 90 \% Alu}
+		%\todo[color=red]{Kleinere Skala und größere Gravitation mithilfe von \cite{glosli2007extending} motivieren.}
+		\subsubsection{Änderungen der Größenordnungen}
+		Für die Simulationen werden im Folgenden die Größenordnungen kleiner skaliert. Während die
+		Partikelgröße der Pulverpartikel beim SLM-Verfahren üblicherweise im Bereich von wenigen
+		Mikrometern \cite{hajnys2020research} was mit den bisherigen Errungenschaften der MD nur
+		schwer zu schaffen ist \cite{eckhardt2013scientists}. Aus diesem Grund wird eine
+		Pulverpartikelgröße in der Größenordnung der hunderten Nanometer angenommen. Dies wird
+		durch eine Veröffentlichung von Glosli et al. motiviert. Diese Forschungsgruppe hat
+		die Kelvin-Helmholtz-Instabilität bei verhältnismäßig kleiner Teilchenzahl als Ergebnis
+		ihrer Simulation nachweisen können. Weil eben diese Instabilität stark von ihren
+		Anfangswerten auftritt kann dies als Motivation verstanden werden den hier zu simuliernden
+		Sachverhalt ebenfalls auf kleinere Maßstäbe zu schrumpfen, da hier im wesentlichen ebenfalls
+		das Verhalten von Fluiden von Interesse ist \cite{glosli2007extending}. Wie in dieser
+		Veröffentlichung muss hier als Ausgleich dazu ebenfalls die Gravitation erhöht werden.
 
 	%\subsection{Besonderheiten bei der Simulationssoftware IMD}
