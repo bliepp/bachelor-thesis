@@ -2,7 +2,7 @@
 
 
 
-\section{Grundlagen des 3D-Drucks mittels selektivem Laserschmelzen (SLM)}
+\section{Grundlagen der additiven Fertigung mittels selektivem Laserschmelzen (SLM)}
 	Additiv gefertigte Produkte (\emph{additive manifacturing}, kurz: \emph{AM}) aus dem
 	3D-Drucker spielen in unserem Leben eine immer größere Rolle. AM bezeichnet hierbei das
 	Fertigen eines Objektes durch hinzufügen von Material, während im Gegensatz dazu die
@@ -16,8 +16,8 @@
 
 	Obwohl es eine Vielzahl unterschiedlicher Methoden der additiven Fertigung gibt, funktionieren
 	alle nach einem ähnlichen Grundprinzip: Das digitale 3-dimension\-ale Modell wird durch einen
-	sogenannten \emph{Slicer} in Schnittebenen unterteilt, die vom 3D-Drucker nacheinander
-	produziert und aufgeschichtet werden.
+	sogenannten \emph{Slicer} in Schnittebenen unterteilt, die nacheinander maschinell produziert
+	und aufgeschichtet werden.
 
 	%\subsection{Funktionsweise und Unterschiede zu anderen Methoden}
 	\subsection{Funktionsweise und Unterschiede zum FDM-Druck}
@@ -37,7 +37,7 @@
 			\caption[Schematische Darstellung des FDM-/FFF-Verfahrens]{Schematische Darstellung
 			einer möglichen Konfiguration des als FDM oder FFF bekannten 3D-Druck-Verfahrens. Ein
 			Fördermechanismus schiebt das Filament durch eine aufgeheizte Düse. Durch eine
-			Bewegung der Düse und/oder des Druckbetts in mindestens 3 Achsen erfolgt eine Formung
+			Bewegung der Düse und/oder des Druckbetts in 3 Achsen erfolgt eine Formung
 			des gewünschten Objektes Ebene für Ebene. \cite{horsch20143d}}
 			\label{fig:fdm}
 		\end{figure}
@@ -76,7 +76,8 @@
 		\cite{shi2016performance}. Zu den am häufigsten verwendeten Materialien, die beim
 		SLM-Verfahren verwendet werden, zählen Titanlegierungen, insbesondere das in der Luft- und
 		Raumfahrt populäre Ti6Al4V \cite{song2012effects,shi2016performance,brandl2012morphology}.
-		Aluminiumlegierungen werden ebenfalls verwendet \cite{yan2020comparative,zou2017study}.
+		Aluminiumlegierungen werden wegen ihrer Eignung zum Leichtbau vor allem in der
+		Automobilindustrie verwendet \cite{yan2020comparative,zou2017study}.
 
 	\subsection{Defekte in gefertigten Objekten}
 		\label{subsec:defects}
@@ -96,13 +97,13 @@
 		\cite{zhang2017defect}. Es werden zwei verschiedene Gasquellen unterschieden. Während eine
 		Quelle des dafür notwendigen Gases die Verdampfung mancher Legierungsbestandteile, wie
 		beispielweise Magnesium, sein kann, kann ein Gaseinschluss nicht zuletzt auch durch
-		Einschluss des beim Prozess verwendeten Umgebungsgases erfolgen \cite{galy2018main}. In
-		letzterem Fall kann zum Beispiel eine zu geringe Packungsdichte des verwendeten
-		Materialpulvers die Ursache sein. Das Gas dringt hierbei während des Schmelzprozesses in
-		die Schmelze ein, erreicht aber aufgrund einer hohen Kühlrate die Oberfläche nicht vor
-		dem Erstarren, sodass beim Erhärten des Materials ein Lufteinschluss die Folge ist. Aus
-		diesem Grund haben Poren eine näherungsweise sphärische Form. Sie sind üblicherweise im
-		gefertigten Objekt gleichverteilt aufzufinden.
+		Einschluss des beim Prozess verwendeten Schutzgases erfolgen \cite{galy2018main}. Dieses
+		wird zur Verhinderung von Oxidationen verwendet. In letzterem Fall kann zum Beispiel eine
+		zu geringe Packungsdichte des verwendeten Materialpulvers die Ursache sein. Das Gas dringt
+		hierbei während des Schmelzprozesses in die Schmelze ein, erreicht aber aufgrund einer
+		hohen Kühlrate die Oberfläche nicht vor dem Erstarren, sodass beim Erhärten des Materials
+		ein Gaseinschluss die Folge ist. Aus diesem Grund haben Poren eine näherungsweise
+		sphärische Form. Sie sind üblicherweise im gefertigten Objekt gleichverteilt aufzufinden.
 
 		Das komplette Eliminieren aller Poren gilt als sehr schwer \cite{zhang2017defect}.
 		Galy et al. zufolge hat die Porengröße und -form einen entscheidenden Einfluss auf die
@@ -120,11 +121,11 @@
 		Überlappung der Bahnen zu fehlender Haftung zwischen diesen führen (sogenannte
 		\emph{bonding defects}). Außerdem resultiert die LOF in zahlreichen Pulvereinschlüssen
 		(Abbildung \ref{fig:defects_lof} b)). Sollte die Energiezufuhr sogar unzureichend sein,
-		um die gesamte Schichthöhe zu penetrieren, führt dies zu mangelhafter Bindung zwischen
+		um die gesamte Schichthöhe zu durchdringen, führt dies zu mangelhafter Bindung zwischen
 		den Ebenen. Aus diesen Gründen sind Defekte die LOF betreffend hauptsächlich zwischen
 		den Bahnen einer Ebene und zwischen den Ebenen selbst zu finden. Da diese Defekte eine
-		raue Oberfläche erzeugen, wird der Materialfluss der nächsten Ebene ebenfalls gestört,
-		sodass Zwischenebenendefekte auftreten können, die graduell durch mehrere Ebenen
+		Erhöhung der Rauheit zur Folge haben, wird der Materialfluss der nächsten Ebene ebenfalls
+		gestört, sodass Zwischenebenendefekte auftreten können, die graduell durch mehrere Ebenen
 		propagieren und somit Defekte zur Folge haben, die sich über mehrere Ebenen erstrecken.
 		Legierungen mit oxidierbaren Bestandteilen wie AlSi10Mg können durch einen entstehenden
 		Oxidfilm und der damit verbundenen verminderten Benetzbarkeit ebenfalls Probleme mit der
@@ -142,13 +143,13 @@
 		\subsubsection{Risse}
 		Während des Schmelzprozesses herrschen nach dem Schmelzen Kühlraten von bis zu
 		\SI{e8}{\kelvin\per\second} \cite{zhang2017defect}. Der dadurch entstehende
-		Temperaturgradient und die damit verbundene unterschiedlich starke Kompression führt zu
-		hohen Verspannungen im Material. Diese Spannungen können nun dafür sorgen, dass Risse
-		(\emph{cracks}) entstehen und dass diese weiter durch das Material propagieren. Abbildung
-		\ref{fig:defects_cracks} zeigt verschiedene Stellen eines Risses, der sich an einer
-		Oberfläche gebildet hat und weiter in das gefertigte Objekt hineinpropagiert ist
-		\cite{zhang2017defect}. Wie bereits in Abschnitt \emph{Porenbildung} erwähnt können auch
-		nicht-sphärische Poren besonders begünstigend auf die Rissbildung wirken
+		Temperaturgradient und die damit verbundene unterschiedlich starke thermische
+		Materialausdehnung führt zu hohen Verspannungen im Material. Diese Spannungen können nun
+		dafür sorgen, dass Risse (\emph{cracks}) entstehen und dass diese weiter durch das
+		Material propagieren. Abbildung \ref{fig:defects_cracks} zeigt verschiedene Stellen eines
+		Risses, der sich an einer Oberfläche gebildet hat und weiter in das gefertigte Objekt
+		hineinpropagiert ist \cite{zhang2017defect}. Wie bereits in Abschnitt \emph{Porenbildung}
+		erwähnt können auch nicht-sphärische Poren besonders begünstigend auf die Rissbildung wirken
 		\cite{galy2018main}.
 
 		\begin{figure}[!ht]
@@ -160,15 +161,19 @@
 			\label{fig:defects_cracks}
 		\end{figure}
 
-		\subsubsection{Keyholes}
-		Sogenannte \emph{Keyholes} treten besonders bei hohen Temperaturen auf. In diesem Fall
-		kann ein Teil des Materials vaporisieren und dann eine V-förmige Furche wie in Abbildung
-		\ref{fig:defects_keyholes} zurücklassen.
+		\subsubsection{Keyhole-Effekte}
+		In Abbildung \ref{fig:defects_keyholes} ist eine starke Änderung in der Form des
+		verfestigten Materials zu sehen. Anstatt eines flachen und breiten Querschnitts ist hier
+		das Resultat eines schmalen und tiefen V-förmigen Schmelzbades zu sehen. Dieser Effekt
+		tritt besonders bei hohen Temperaturen auf. In diesem Fall vaporisiert ein Teil des
+		Materials. Der entstehende Dampf verdrängt das umliegende geschmolzene Material teilweise,
+		sodass sich eine Dampfkapillare ausbildet. Das geschmolzene Material umfließt diese und
+		erstarrt hinter ihr. Dieser Effekt wird \emph{Keyhole-Effekte} genannt.
 
 		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=0.6\textwidth]{chapter/main/img/defects/keyhole.png}
-			\caption{Ein als Keyhole bekannter Defekt \cite{eskandarisabzi2019defect}}
+			\caption{Ein druch den Keyhole entstandener Defekt \cite{eskandarisabzi2019defect}}
 			\label{fig:defects_keyholes}
 		\end{figure}
 
@@ -192,10 +197,10 @@
 		(\emph{scanning speed}), die Laserleistung, der horizontale Bahnabstand
 		(\emph{hatch distance} oder \emph{hatch spacing}), die Wellenlänge des Lasers, der
 		Durchmesser des fokussierten Laserpunktes (\emph{spot size}) und die durch die Dicke der
-		Pulverschicht bestimmte  Ebenenhöhe (\emph{layer thickness}) \cite{sadali2020influence}.
+		Pulverschicht bestimmte  Schichtdicke (\emph{layer thickness}) \cite{sadali2020influence}.
 		Abbildung \ref{fig:slm_parameters} zeigt die räumliche Einordnun dieser Parameter. Da für
 		diese Arbeit die Größenordnung im Bereich der einzelnen Pulverpartikel von Interesse ist,
-		werden im weiteren Verlauf der Bahnabstand und die Ebenenhöhe nicht weiter betrachtet.
+		werden im weiteren Verlauf der Bahnabstand und die Schichtdicke nicht weiter betrachtet.
 
 		\begin{figure}[!ht]
 			\centering
@@ -221,10 +226,10 @@
 
 		Nichtsdestotrotz bedeutet dies nicht unbedingt, dass ein schnellerer Laser grundsätzlich
 		ein besseres Gesamtergebnis erzielt. Mit höherer Geschwindigkeit treten beispielsweise
-		auch mehr Mikrorisse auf. Während diese durch \emph{Heißisobarisches Pressen} (\emph{HIP})
-		zwar minimiert werden können, treten ab einer gewissen Geschwindigkeit jedoch vermehrt
-		Keyholes auf, deren nachträgliche Reduktion durch HIP nicht möglich ist
-		\cite{sadali2020influence}.
+		auch mehr Mikrorisse auf. Während diese durch \emph{Heißisostatisches Pressen}
+		(\emph{HIP}) zwar minimiert werden können, treten ab einer gewissen Geschwindigkeit jedoch
+		vermehrt unnerwünschte Effekte auf, deren nachträgliche Reduktion durch HIP nicht möglich
+		ist \cite{sadali2020influence}.
 
 		\begin{figure}[!ht]
 			\centering
