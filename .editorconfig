@@ -24,7 +24,7 @@ indent_size = 8
 indent_style = tab
 indent_size = 4
 
-[*.{dat,cna}]
+[*.{dat,eng,cna}]
 # generic data files in tabular style
 indent_style = tab
 indent_size = 12
