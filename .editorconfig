@@ -19,10 +19,15 @@ indent_size = 4
 indent_style = tab
 indent_size = 8
 
-[*.plt]
+[*.{plt,g,gnuplot}]
 # gnuplot files
 indent_style = tab
 indent_size = 4
+
+[*.{dat,cna}]
+# generic data files in tabular style
+indent_style = tab
+indent_size = 12
 
 [*.{tex,cls}]
 # LaTeX
