@@ -1,4 +1,7 @@
-#!/usr/bin/gnuplot
+#!/usr/bin/env gnuplot
+#
+# Schematic plot of the LJ potential
+#
 
 #SETUP AREA
 reset

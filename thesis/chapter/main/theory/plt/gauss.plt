@@ -1,4 +1,7 @@
-#!/usr/bin/gnuplot
+#!/usr/bin/env gnuplot
+#
+# Schematic plot of a gaussian function
+#
 
 #SETUP AREA
 reset
