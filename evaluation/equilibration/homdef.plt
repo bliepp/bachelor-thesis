@@ -22,9 +22,9 @@ fit [15:17] f(x) file u 5:2 via a, b, c
 set y2tics -0.1,0.1 # pressure
 set ytics -3.35,0.1 nomirror # pot. energy
 
-set xlabel "Volumen pro Atom V [{\305}]"
+set xlabel "Volumen pro Atom V [{\305}^3]"
 set ylabel "Potentielle Energie pro Atom [eV]"
-set y2label "Druck P [Pa]" rotate by -90
+set y2label "Druck P [ev \305}^{-3}]" rotate by -90
 
 set xrange[12.5:21.5]
 set yrange[-3.38:-3.02]
