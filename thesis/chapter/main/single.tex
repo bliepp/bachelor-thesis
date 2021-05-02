@@ -63,21 +63,21 @@
 
 		\begin{figure}[!ht]
 			\centering
-			\includegraphics[width=0.9\textwidth,page=1]{chapter/main/single/plt/equilibration/thermostat.eps}
+			\includegraphics[width=0.9\textwidth]{chapter/main/single/plt/equilibration/thermostat.eps}
 			\caption{Der Aufheizprozess mit vorgegebener Temperatur. Die Fluktuationen werden
 			mit fortschreitender Zeit geringer.}
 			\label{fig:thermostat}
 		\end{figure}
 
-		Abbilund \ref{fig:thermostat} zeigt das Aufheizen einer würfelförmigen Probe mithilfe des
+		Abbildung \ref{fig:thermostat} zeigt das Aufheizen einer würfelförmigen Probe mithilfe des
 		in IMD implementierten Nosé-Hoover-Thermostats. Während die Temperatur am Anfang trotz
 		Vorgabe noch schwankt, vermindert sich dieser Effekt mit der Zeit. Ab ungefähr 800
 		Zeiteinheiten sind die Fluktuationen in etwas konstant.
 
 		\begin{figure}[!ht]
 			\centering
-			\includegraphics[width=0.9\textwidth,page=2]{chapter/main/single/plt/equilibration/thermostat.eps}
-			\caption{Die potentielle Energie zeigt einen zur Temperatur proportionalen Verlauf.}
+			\includegraphics[width=0.9\textwidth]{chapter/main/single/plt/equilibration/thermostat_pot.eps}
+			\caption{Die potentielle Energie zeigt einen zur Temperatur proportionalen Verlauf}
 			\label{fig:thermostat_pot}
 		\end{figure}
 
@@ -86,19 +86,29 @@
 		Aufheizen eine NVE-Simulation bis zum Equilibrium durchzuführen.
 
 	\subsection{Zuschneiden der Probe}
-		Üblicherweise sind Proben quaderförmig und füllen die komplette Simulationsbox aus. Im
-		Rahmen dieser Arbeit sind jedoch Kugelformen interessant, da sie so den Pulverpartikeln
-		beim SLM-Verfahren in der Form am ähnlichsten sind. Die einfachste Methode zum erzeugen
-		einer solchen Probe ist das Entfernen der entsprechenden Teilchen aus einem Quader. Aus
-		diesem Grund stellt sich die Frage zu welchen Zeitpunkt das Zuschneiden am geschicktesten
-		wäre. Tatsächlich scheint es logisch zu sein, die Kugel vor dem Equilibrieren
-		freizustellen. So kann das freigestellte Material an seinen neuen Rändern ebenfalls
-		relaxieren, da so die Einflussnahme druch später entfernte Teilchen verhindert wird.
-		Außerdem kann die freigestellte Kugel (vor allem unter Gravitation) eine leicht von der
-		perfekten Kugel abweichende Form annehmen, die im Gitter mit periodischen Randbedingungen
-		gar nicht zustandekommen könnte. Ein Freischneiden nach der vollständigen Equilibrierung
-		hätte zu einem Absacken der Kugel während der beobachteten Simulation geführt, sodass es
-		zu fehlerhaften Ergebnissen hätte kommen können.
+		Üblicherweise sind Proben quaderförmig. Im Rahmen dieser Arbeit sind jedoch Kugelformen
+		unter der Einwirkung von Gravitation interessant, da sie so den Pulverpartikeln beim
+		SLM-Verfahren am ähnlichsten sind. Die einfachste Methode zum erzeugen einer solchen Probe
+		ist das Entfernen der entsprechenden Teilchen aus einem Quader. Aus diesem Grund stellt
+		sich die Frage zu welchen Zeitpunkt das Zuschneiden am geschicktesten wäre.
+
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=\textwidth]{chapter/main/single/img/equilibrated_sphere.zoom.png}
+			\caption{Eine vollständig equilibrierte Kugel aus Aluminiumatomen auf einem festen,
+			unbeweglichen Untergrund}
+			\label{fig:equilibrated_sample}
+		\end{figure}
+
+		Tatsächlich hat sich gezeigt, dass es am geschicktesten ist, die Kugel vor dem Aufheizen,
+		aber nach der homogenen Deformation freizustellen. So behält die homogene Deformation ihr
+		Gültigkeit, das freigestellte Material kann aber an seinen neuen Rändern relaxieren, ohne
+		dass später sowieso entfernte Teilchen Einfluss auf das Verhalten an der Oberfläche
+		nehmen. Diese kann (vor allem unter Gravitation) eine vom kugelförmigen Gitterausschnitt
+		leicht verschiedene Oberflächenform annehmen annehmen, die im Gitter mit periodischen
+		Randbedingungen gar nicht zustandekommen könnte. Ein Freischneiden nach der vollständigen
+		Equilibrierung hätte zu einem Absacken der Kugel während der eigentlichen Simulation
+		geführt, sodass dies das Ergebnissen hätte beeinflussen können.
 
 
 \section{Kalibrierung der Laserleistung bei fester Lasergeschwindigkeit}

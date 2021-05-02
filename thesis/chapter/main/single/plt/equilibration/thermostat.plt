@@ -8,15 +8,14 @@ set encoding utf8
 set decimalsign ','
 
 set term postscript eps enhanced color font "Helvetica,22"
-set out "thermostat.eps"
-
-
 file = "equi_block_aufgeheizt.eng"
 
 
 set key bottom right Left
 set grid
 
+
+set out "thermostat.eps"
 set xrange [:1000]
 #set yrange [:]
 
@@ -25,6 +24,7 @@ set ylabel "Temperatur T [meV * k_B]"
 plot file u 1:($3*1000) w d notitle lt rgb "red"
 
 
+set out "thermostat_pot.eps"
 unset xrange
 set yrange[-3.36:-3.32]
 set ytics -3.36,0.01
