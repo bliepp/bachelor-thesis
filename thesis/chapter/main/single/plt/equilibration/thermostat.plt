@@ -23,7 +23,7 @@ set out "thermostat.eps"
 set xrange [:1000]
 #set yrange [:]
 
-set xlabel "Zeit t"
+set xlabel "Zeit t [10,18 fs]"
 set ylabel "Temperatur T [meV * k_B]"
 plot soll(x) title "Sollkurve" lw 5 lt rgb "red",\
 	file u 1:($3*1000) w d notitle lt rgb "black"

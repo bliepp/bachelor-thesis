@@ -23,7 +23,7 @@
 %% features
 \RequirePackage{lmodern,grffile,xcolor,caption,tcolorbox}
 \RequirePackage{amsmath,amssymb,mathtools}
-\RequirePackage{multicol,enumerate,xspace}
+\RequirePackage{multicol,enumerate,xspace,subcaption}
 \RequirePackage[locale=DE,exponent-product=\cdot]{siunitx}
 \RequirePackage[colorinlistoftodos,ngerman]{todonotes}
 %\RequirePackage{showframe}
@@ -38,6 +38,10 @@
 }
 
 
+% graphical stuff
+\renewcommand{\arraystretch}{1.8}
+
+
 % BibTeX stuff
 \bibliographystyle{ieeetr-de}
 
@@ -50,6 +54,10 @@
 \definecolor{darkgreen}{HTML}{35B035}
 \definecolor{darkblue}{HTML}{3B3BC4}
 \definecolor{verylightgrey}{HTML}{DDDDDD}
+
+%% units
+\newcommand{\powerunit}[1][]{\ensuremath{#1\,\frac{\si{\electronvolt}}{\SI{10.18}{fs}}}\xspace}
+\newcommand{\timeunit}{\ensuremath{\,\SI{10.18}{fs}}\xspace}
 
 %% infinitesimal elements
 \newcommand{\dinf}{\ensuremath{\text{d}}\xspace}

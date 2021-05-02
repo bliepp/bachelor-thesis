@@ -73,7 +73,7 @@
 		Abbildung \ref{fig:thermostat} zeigt das Aufheizen einer würfelförmigen Probe mithilfe des
 		in IMD implementierten Nosé-Hoover-Thermostats. Während die Temperatur am Anfang trotz
 		Vorgabe noch schwankt, vermindert sich dieser Effekt mit der Zeit. Ab ungefähr 800
-		Zeiteinheiten sind die Fluktuationen in etwa konstant.
+		IMD-Zeiteinheiten sind die Fluktuationen in etwa konstant.
 
 		\begin{figure}[!ht]
 			\centering
@@ -123,7 +123,184 @@
 		\end{figure}
 
 
-\section{Kalibrierung der Laserleistung bei fester Lasergeschwindigkeit}
-\todo[color=green]{Vielleicht geschmolzenen Anteil gehen? Eventuell Kapitelaufteilung in verschiedene Leistungen?}
+\section{Variation der Laserleistung bei fester Lasergeschwindigkeit}
+		Wie in Abschnitt \ref{subsec:approximation} bereits erläutert werden für dieses Modell
+		teils Näherungen verwendet, die ein direktes Übertragen der Simulationsdaten auf
+		experimentelle Messdaten anhand einer reinen Messgrößenumrechnung nahezu unmöglich machen.
+		Zur Verifizierung des Modells bietet sich also ein überwiegend qualitativer Vergleich mit
+		Beobachtungen aus Experimenten an.
+
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.6\textwidth]{chapter/main/single/img/scheme_graph.png}
+			\caption{Schematische Darstelllung der durch Laserleistung und Lasergeschwindigkeit
+			gemeinsamen Wirkung \cite{metalam2018how}}
+			\label{fig:sceme_graph}
+		\end{figure}
+
+		Abbildung \ref{fig:sceme_graph} zeigt schematisch wie die Lasergeschwindigkeit und
+		die Laserleistung zusammen welche Defekte begünstigen und in welchen Bereich an
+		Parameterpaaren das Resultat als gut gilt. Anhand der Variation in der Simulation
+		können solche Zusammenhänge auf Teilchenebene bestätigt und deshalb besser verstanden
+		werden.
+
+		Bevor ein solcher Zusammenhang jedoch konkret erforscht werden kann, bedarf es erstmal
+		einer Kalibrierung des Modell beziehungsweise einer Menge an gewählten Startwerten für die
+		Parameter, deren Resultate dann als Bezugspunkte innerhalb des Modells dienen. Zu diesem
+		Zweck wurde der Einfluss einer Laserleistung bei einer frei gewählten obligatorischen
+		Lasergeschwindigkeit von \SI{10}{\angstrom} pro IMD-Zeiteinheit auf die Probe untersucht,
+		mit dem Ziel eine Referenzsimulation zu kreieren, deren Rechenzeit vertretbar ist. Dieser
+		Punkt ist besonders wichtig, da nach der Einwirkung des Lasers noch ein vielfaches der
+		Zeit für die Relaxierung zum neuen Equilibrium aufgewendet werden muss. Von dieser
+		Referenzsimulation aus können dann im weiteren Verlauf die einzelnen Parameter variiert
+		werden, um deren direkten Einfluss zu untersuchen.
+
+		Als Maß für den geschmolzenen Anteil der Kugel wird eine \emph{Common Neighbor Analysis}
+		(\emph{CNA}) verwendet. Eine CNA ist dabei ein Hilfsmittel zur Erkennung und Benennung
+		von Gitterstrukturen. Wenn also ein Atom im Aluminium, das bekanntermaßen eine
+		fcc-Gitterstruktur hat, als Teil einer anderen Struktur erkannt wird, muss es sich
+		zwangsläufig um fluides Aluminium - also die Schmelze - handeln. Dies ist im Großen und
+		Ganzen erfahrungsgemäß funktional, jedoch darf nicht vergessen werden, dass Randatome
+		(beispielsweise auf Oberflächen) aus geometrischen Gründen falsch erkannt werden können.
+
+		\begin{figure}[!ht]
+			\centering
+			\begin{subfigure}{0.49\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{chapter/main/single/plt/power_calibration/cna_vel10_start.eps}
+				\subcaption{Anfangsbereich}
+				\label{fig:cna_vel10_start}
+			\end{subfigure}
+			\begin{subfigure}{0.49\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{chapter/main/single/plt/power_calibration/cna_vel10_rate.eps}
+				\subcaption{Langzeitentwicklung}
+				\label{fig:cna_vel10_rate}
+			\end{subfigure}
+			\caption{Anteil der Teilchen, die zum geschmolzenen Material zählen über die
+			Simulationszeit. Der senkrechte graue Balken markiert den Zeitpunkt zu dem der Laser
+			bereits mit Geschwindigkeit $v_\text{Laser} = \SI{10}{\angstrom}$ pro IMD-Zeiteinheit
+			vollständig über die Probe gefahren ist.}
+			\label{fig:cna_vel10}
+		\end{figure}
+
+		In Abbildung \ref{fig:cna_vel10} ist der Anteil des geschmolzenen Materials für
+		verschiedene Laserleistungen $P$ über die Zeit aufgetragen. In Abbildung
+		\ref{fig:cna_vel10_start} ist der Zeitbereich um den direkten Lasereinfluss vergrößert.
+		Hier ist zu sehen, dass der Laser die Probe schlagartig aufschmilzt und der Anteil an
+		geschmolzenen Material kurzzeitig konstant bleibt. Durch anfitten eines konstanten Wertes
+		in diesem Bereich kann der Anteil an durch die jeweilige Leistung geschmolzenen Materials
+		bestimmt werden.
+
+		\begin{table}[!ht]
+			\centering
+			\caption{Anteil des Materials einer ursprünglich großen Kugel,
+			der geschmolzen wird}
+			\begin{tabular}{l | r | r}
+				Leistung $P$ $\left[\powerunit\right]$
+					&	Geschmolzen [\%]
+					&	Steigerung $\left[\si{\percent\per\timeunit}\right]$
+					\\\hline
+				60	&	\SI{68.54}{\percent}	&	0.00085	\\
+				80	&	\SI{79.49}{\percent}	&	0.00086	\\
+				100	&	\SI{86.95}{\percent}	&	0.00082	\\
+				160	&	\SI{99.26}{\percent}	&	0.00084
+			\end{tabular}
+			\label{tab:vel10_start}
+		\end{table}
+
+		Quantifiziert durch Tabelle \ref{tab:vel10_start} ist gut zu erkenen, dass bei einer
+		Leistung $P = \powerunit[160]$ die Kugel komplett geschmolzen wird. Der
+		fehlende Anteil von $\approx \SI{0.8}{\percent}$ geht auf die Fluktuationen am Anfang
+		zurück. In Abbildung \ref{fig:cna_vel10_start} ist schließlich gut zu erkennen, dass der
+		Wert die \SI{100}{\percent} noch erreicht.
+
+		Dass die Aufschmelzung vollständig erfolgte, lässt auch Abbildung \ref{fig:vel10_p160}
+		vermuten. Der Übersicht wegen wurden hier kleine noch in der Luft auffindbare Spritzer
+		mithilfe einer Clusteranalyse identifiziert und ausgeblendet. Für die Bestimmung des
+		Schmelzgrades werden diese allerdings berücksichtigt. In der Seitenansich in Abbildung
+		\ref{fig:vel10_p160_side} ist auch zu sehen, dass die Schmelze den Untergrund flach und
+		breit benetzt. Dies ist auch so in der Realität der Fall \cite{eskandarisabzi2019defect}
+		und spricht dafür, dass das Modell mindestens aspekteweise anwendbar ist. Im Großen und
+		Ganzen gibt es - augenscheinlich zumindest - auch keine bevorzugte Spritzrichtung
+		(Abbildung \ref{fig:vel10_p160_perspective}).
+
+		\begin{figure}[!ht]
+			\centering
+			\begin{subfigure}{0.5\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{chapter/main/single/img/power_calibration/v10_p160_c420_perspective.png}
+				\subcaption{Perspektivische Ansicht}
+				\label{fig:vel10_p160_perspective}
+			\end{subfigure}
+			\begin{subfigure}{0.9\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{chapter/main/single/img/power_calibration/v10_p160_c420_side_cropped.png}
+				\subcaption{Seitenansicht}
+				\label{fig:vel10_p160_side}
+			\end{subfigure}
+			\caption{Die vollständig aufgeschmolzene Kugel für einen Laser mit
+			$P = 160$ Leistungseinheiten nach 21000 IMD-Zeiteinheiten}
+			\label{fig:vel10_p160}
+		\end{figure}
+
+		Ein interessantes, aber auf den ersten Blick unlogisch erscheinendes, Phänomen ist in
+		Abbildung \ref{fig:cna_vel10_rate} für niedrigere Leistungen zu sehen. Während der Anteil
+		geschmolzenem Material direkt nach der Lasereinwirkung unter Berücksichtigung hoher
+		Fluktuationen konstant ist, ist für längere Zeiträume ein nahezu linearer Anstieg des
+		Anteils geschmolzenen Materials zu sehen, bis ein Sättigungseffekt einsetzt. Die
+		Steigerungsrate im lineare angenommenen Bereich beträgt für alle Leistungen ungefähr
+		gleich viel. Im Schnitt liegt sie bei \SI{8.4e-4}{\percent\per\timeunit} . Dieses
+		Verhalten lässt sich leicht erklären. Wenn der Laser einen Teil der Kugel verflüssigt,
+		überträgt dieser Teil seine überschüssige Wärme gemäß dem zweiten Hauptsatz der
+		Thermodynamik auf den noch ungeschmolzenen Anteil. Ist diese gleichmäßig verteilte Wärme
+		groß genug, schmilzt der noch erhärtete Teil ebenfalls. In der Realität ist das
+		SLM-Verfahren jedoch kein isoliertes System im thermodynamischen Sinne. Eher das Gegenteil
+		ist der Fall: Eine richtige Kühlung ist essentiell für das Verfahren. Wie in Abschnitt
+		\ref{subsec:defects} bereits erwähnt kann zu frühes Erstarren zur Poren- oder Rissbildung
+		führen, während zu spätes Erstarren ein Stück weit einen Verlust der Mikrostruktur und
+		damit der Produktionsgenauigkeit bedeutet \cite{sercombe2016selective}. Gezielt
+		eingesetzte Kühlung ist also von fundamentaler Bedeutung.
+
+		\begin{figure}[!ht]
+			\centering
+			\begin{subfigure}{0.49\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{chapter/main/single/img/power_calibration/v10_p100_c225.png}
+				\subcaption{$t = \SI{11250}{\cdot\timeunit}$}
+				\label{fig:vel10_p100_earlier}
+			\end{subfigure}
+			\begin{subfigure}{0.49\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{chapter/main/single/img/power_calibration/v10_p100_c280.png}
+				\subcaption{$t = \SI{14000}{\cdot\timeunit}$}
+				\label{fig:vel10_p100_later}
+			\end{subfigure}
+			\caption{Hohlräume verschwinden wegen dem die Probe umgebenden Vakuum. Mit einem
+			Schutzgas gefüllt wären die Hohlräume gefüllt und daraus resultierende Defekte wären
+			beobachtbar.}
+			\label{fig:vel10_p100}
+		\end{figure}
+
+		Eine weitere dem Modell geschuldete Ungenauigkeit ist in Abbildung \ref{fig:vel10_p100}
+		zu sehen. Es handelt sich um einen Querschnitt durch die Mitte der Kugel in der
+		$z$-$x$-Ebene. Rote Atome sind Teil des geschmolzenen Materials, während weiße Atome Teil
+		von fcc-Gitterstrukturen sind. Die Kugel wird für $P = 100$ Leistungseinheiten nicht
+		vollständig geschmolzen, auch wenn der im vorherigen Abschnitt erläuterte Sachverhalt das
+		ungeschmolzene Material nachträglich verschmelzen lässt. Das sieht man besondern gut
+		daran, dass der ungeschmolzene Rest mit der Zeit schrumpt. Was an dieser Simulation
+		allerdings besonders interessant ist, ist die Tatsache, dass im linken Bild
+		Hohlraumbildung zu beobachten ist. Die obere, flüssige Hälfte spritzt seitlich herunter,
+		wobei eine flache Ausbreitung wie in Abbildung \ref{fig:vel10_p160} durch den teilweise
+		ungeschmolzenen Kern verhindert wird. Die teilweise festen Strukturen führen hier also zur
+		Bildung von Hohlräumen. Wie in Abschnitt \ref{subsec:defects} erläutert nennt man die
+		dadurch entstandenen Defekte ''Poren''. Leider ist ein paar Simulationsschritte später
+		keine Spur der Hohlräume mehr aufzufinden. Das liegt daran, dass Poren eben durch
+		Gaseinschlüsse entstehen. Da in der hier betrachteten Simulation die Probe jedoch von
+		einem Vakuum umgeben ist, konnte umliegendes Material einfach den Hohlraum eindringen
+		und die Pore so schließen.
+
 
 \section{Verhalten bei halbierter Lasergeschwindigkeit}
+		Nachdem jetzt ein Methode zur Übertragung der Simulationsergebnisse auf experimentelle
+		Daten bekannt ist
