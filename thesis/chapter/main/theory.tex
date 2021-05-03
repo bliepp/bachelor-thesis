@@ -24,11 +24,11 @@
 		Das bekannteste Verfahren zur additiven Fertigung ist das \emph{Fused Depositing Modeling}
 		(\emph{FDM}), aus Markenrechtsgründen auch bekannt als \emph{Fused Filament Fabrication}
 		(\emph{FFF}). Wie in Abbildung \ref{fig:fdm} dargestellt wird dabei ein Kunststofffilament
-		mithilfe eines Fördermechanismuses (\emph{extruder}) durch eine heißen Düse \emph{hotend}
-		geschoben und dort geschmolzen. Diese Düse ist Teil eines beweglichen Druckkopfs und fährt
-		während des Extrudierens die geslicte Schnittebene ab, sodass Ebene für Ebene das
-		gewünschte Objekt aufgeschichtet wird. Schichten sind bei diesem Verfahren üblicherweise
-		zwischen \SI{0,025}{\milli\meter} und \SI{1,25}{\milli\meter} dick
+		mithilfe eines Fördermechanismuses (\emph{extruder}) durch eine heißen Düse
+		(\emph{hotend}) geschoben und dort geschmolzen. Diese Düse ist Teil eines beweglichen
+		Druckkopfs und fährt während des Extrudierens die geslicte Schnittebene ab, sodass Ebene
+		für Ebene das gewünschte Objekt aufgeschichtet wird. Schichten sind bei diesem Verfahren
+		üblicherweise zwischen \SI{0,025}{\milli\meter} und \SI{1,25}{\milli\meter} dick
 		\cite{wikipedia2021fused}.
 
 		\begin{figure}[!ht]
@@ -59,7 +59,6 @@
 		Material in den Druckraum, dessen Druckbett abgesenkt wird. Ein beweglicher Laser fährt
 		nun die gewünschte Schnittebene ab und verschmilzt das Pulver zu einer festen Form
 		\cite{horsch20143d}.
-		%\todo[color=red]{Quelle dazu finden bzw. nennen. Florian Horsch?}
 
 		\begin{figure}[!ht]
 			\centering
@@ -115,7 +114,7 @@
 
 		\subsubsection{Mangelnde Verschmelzung}
 		Eine mangelnde Verschmelzung (\emph{lack-of-fusion}, kurz: \emph{LOF}) entsteht
-		überwiegend durch unzureichende Energiezufuhr während des Schmelzprozesses. Ist die von
+		überwiegend durch unzureichende Energiezufuhr während des Schmelzprozesses. Ist die vom
 		Laser zugeführte Energie zu niedrig, vermindert sich die Breite der aufgeschmolzenen Bahn.
 		Wie in Abbildung \ref{fig:defects_lof} a) zu sehen kann dies durch unzureichende
 		Überlappung der Bahnen zu fehlender Haftung zwischen diesen führen (sogenannte
@@ -179,6 +178,7 @@
 		\end{figure}
 
 	\subsection{Wichtige Parameter und Einfluss der Lasergeschwindigkeit}
+		\label{subsec:parameters}
 		Beim SLM-Verfahren sind verschiedene Parameter einstellbar, die das Resultat in
 		unterschiedlicher Weise und Stärke beeinflussen. Eine kategorische Übersicht über alle
 		beim SLM-Prozess variierbaren Parameter ist in Abbildung \ref{fig:scheme_parameters} zu
@@ -222,8 +222,8 @@
 		instabilen Flüssigspuren durch mangelnde Benetzbarkeit entstehen können
 		(\emph{balling effect}), werden mit steigender Geschwindigkeit nicht nur weniger, sondern
 		auch kleiner. Abbildung \ref{fig:defects_balling} zeigt eine Oberfläche, auf der der
-		\emph{balling effect} auftritt. Diese Ballförmigen Anhäufungen können auch in Clustern
-		auftreten.
+		\emph{balling effect} auftritt.
+		% Diese ballförmigen Anhäufungen können auch in Clustern auftreten.
 
 		Nichtsdestotrotz bedeutet dies nicht unbedingt, dass ein schnellerer Laser grundsätzlich
 		ein besseres Gesamtergebnis erzielt. Mit höherer Geschwindigkeit treten beispielsweise
@@ -270,8 +270,8 @@
 		Bei der MD werden also Systemeigenschaften explizit anhand der zugrundeliegenden
 		Wechselwirkung zwischen den Teilchen bestimmt, indem in einem iterativen Verfahren alle
 		Bewegungsgleichungen explizit gelöst werden. Das bedeutet konkret: In einem Schritt werden
-		die Kräfte $F_{ij}$, die von allen anderen Teilchen $j \neq i$ auf ein Teilchen $i$ wirken
-		errechnet. Im nächsten Schritt resultieren daraus die nächsten Werte der
+		die Kräfte $\uvec{F}_{ij}$, die von allen anderen Teilchen $j \neq i$ auf ein Teilchen $i$ wirken
+		berechnet. Im nächsten Schritt resultieren daraus die nächsten Werte der
 		Phasenraumkoordinaten. Um eine gewisse Zeitspanne $t$ zu beschreiben wird dieser Vorgang
 		nun mehrmals iterativ wiederholt \cite{allen2004introduction}. Abbildung
 		\ref{fig:scheme_md} erläutert die Vorgehensweise am Beispiel eines beliebigen Teilchens in
@@ -309,7 +309,7 @@
 		deswegen etabliert, weil das Potential einerseits analytischer Natur und einfach
 		differenzierbar ist, andererseits die Wechselwirkungen zwischen zwei Teilchen sehr gut
 		abbildet. Es modelliert die schwache, aber langreichweitige Van-der-Waals-Bindung mit der
-		London-Kraft $~ r^{-6}$ und das starke, aber kurzreichweitigere Pauli-Prinzip mit einem
+		London-Kraft $~ r^{-6}$ und das starke, aber kurzreichweitige Pauli-Prinzip mit einem
 		Repulsionsterm $\sim r^{-n}$, wobei aus praktischen Gründen oft $n=12$ gewählt wird. In
 		Abbildung \ref{fig:potential_lj} ist zu erkennen, dass das Potential einerseits eine
 		abrupte Abstoßung naher Teilchen bewirkt, andererseits für eine Anziehung weiter
@@ -323,7 +323,7 @@
 			\label{fig:potential_lj}
 		\end{figure}
 
-		Die auf vom Teilchen $j$ auf das Teilchen $i$ wirkende Kraft
+		Die vom Teilchen $j$ auf das Teilchen $i$ wirkende Kraft
 		\begin{align}
 			\uvec{F}_{ij} &= -\nabla_i U^\text{LJ}\left(
 				\left\|\uvec{x}_i - \uvec{x}_j\right\|
@@ -348,9 +348,6 @@
 		mit $N(N-1)$ ($\rightarrow N^2$ für große $N$). Durch Newtons drittes Gesetz
 		$\uvec{F}_{ij} = -\uvec{F}_{ji}$ lässt sich die Anzahl der expliziten Kraftberechnungen
 		halbieren, wobei das Skalierungsverhalten weiterhin quadratisch bleibt.
-
-	\subsection{Reduzierte Einheiten}
-	\todo[color=red]{Kapitel über reduzierte Einheiten schreiben}
 
 	\subsection{Numerische Integration der Newtonschen Bewegungsgleichungen}
 		Alle iterativen Verfahren zur numerischen Integration von Bewegungsgleichungen basieren
@@ -424,10 +421,10 @@
 
 	\subsection{Erweiterung von IMD} % Implementierung des Lasers
 		Bestrahlt man ein Material mit einem Laser, so regen die Photonen die Elektronen im
-		Material an. Nur eine bestimmte Anzahl an Elektronen existiert, die in der infinitesimalen
-		Eindringtiefe $\dx$ genau die Energie der eingestrahlten Photonen aufnehmen können. Da die
-		Anzahl der Photonen proportional zur Intensität des Lasers ist, sinkt die
-		Absorptionswahrscheinlichkeit mit sinkender Intensität. Dieses Verhalten wird mit dem
+		Material an. Nur eine bestimmte Anzahl an Elektronen, die in der infinitesimalen
+		Eindringtiefe $\dx$ genau die Energie der eingestrahlten Photonen aufnehmen können,
+		existiert. Da die Anzahl der Photonen proportional zur Intensität des Lasers ist, sinkt
+		die Absorptionswahrscheinlichkeit mit sinkender Intensität. Dieses Verhalten wird mit dem
 		\emph{Lamber-Beer'schen} Gesetz
 
 		\begin{align}
@@ -566,7 +563,7 @@
 		\subsubsection{Lambert-Beer'sches Gesetz}
 		Eine Näherung, die aus Gründen der einfacheren Implementierung und der besseren
 		Rechenleistung sinnvoll ist, ist eine vereinfachte Anwendung des Lambert-Beer'schen
-		Gesetzes. Während bei diesem Gesetz eigentlich die Länge betrachtet wird, während der sich
+		Gesetzes. Während bei diesem Gesetz eigentlich die Länge betrachtet wird, über die sich
 		die elektromagnetischen Wellen tatsächlich im Medium befinden, wird hier für den Eintritt
 		der Absorption ein fixer $z$-Wert angenommen. Dies hat den Grund, dass eine Absorption
 		nach exakten Maßstäben nur durch eine Diskretisierung des Lasers in kleinere Unterstrahlen
@@ -579,8 +576,8 @@
 		eine Änderung der makroskopischen Eigenschaften nicht zu erwarten, da die Dynamik des
 		System näherungsweise gleich bleibt.
 
-		\todo[color=red]{Kurzes Kapitel darüber warum Aluminium bzw über Alu an sich. zB AluSi10Mg
-		enthält nach DIN EN 1706 ca. 90 \% Alu}
+		%\todo[color=red]{Kurzes Kapitel darüber warum Aluminium bzw über Alu an sich. zB AluSi10Mg
+		%enthält nach DIN EN 1706 ca. 90 \% Alu}
 		%\todo[color=red]{Kleinere Skala und größere Gravitation mithilfe von \cite{glosli2007extending} motivieren.}
 		\subsubsection{Änderungen der Größenordnungen}
 		Für die Simulationen werden im Folgenden die Größenordnungen kleiner skaliert. Die
@@ -589,8 +586,8 @@
 		Rechenleistungen nur schwer zu schaffen ist \cite{eckhardt2013scientists}. Aus diesem
 		Grund wird eine Pulverpartikelgröße in der Größenordnung der hunderten \AA ngström
 		angenommen. Die Einführung dieser Skalierungsfaktoren führt ebenfalls zu einer Änderung
-		der Einheiten. Motiviert wird dies wird durch eine Veröffentlichung von Glosli et al.
-		Diese Forschungsgruppe hat die Kelvin-Helmholtz-Instabilität bei verhältnismäßig kleiner
+		der Einheiten. Motiviert wird dies durch eine Veröffentlichung von Glosli et al. Diese
+		Forschungsgruppe hat die Kelvin-Helmholtz-Instabilität bei verhältnismäßig kleiner
 		Teilchenzahl als Ergebnis ihrer Simulation nachweisen können. Weil eben diese Instabilität
 		stark von ihren Anfangswerten abhängt, kann das Auftreten dieser als Motivation verstanden
 		werden den hier zu simulierenden Sachverhalt ebenfalls auf kleinere Maßstäbe zu
