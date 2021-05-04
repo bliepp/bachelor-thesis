@@ -89,7 +89,9 @@
     <path
        style="fill:none;stroke:#000000;stroke-width:20;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="M 1079.7207,55.72076 231.11525,782.70569"
-       id="path1015" />
+       id="path1015"
+       inkscape:export-xdpi="96.148392"
+       inkscape:export-ydpi="96.148392" />
     <path
        style="fill:none;stroke:#000000;stroke-width:20;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="m 442.7403,994.33069 636.9804,-26.05145"
