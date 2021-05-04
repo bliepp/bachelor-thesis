@@ -1,1 +1,61 @@
-\chapter{Ausblick}
+\chapter{Zusammenfassung und Ausblick}
+
+
+
+Ziel der Arbeit war die molekulardynamische Simulation von selektiven Laserschmelzen, einem
+Verfahren der additiven Fertigung, bei dem ein Laser eine Metallpulverschicht nach der anderen
+selektiv zum Schmelzen bringt und so das gewünschte Objekt formt. Zu beachten gibt es hierbei,
+dass die Pulverpartikel Durchmesser in der Größenordnung weniger Mikrometer haben, die dafür
+notwendige Teilchenzahl allerdings selbst mit den aktuell gängigen Höchstleistungsrechnern nur
+schwer realisierbar ist. Während Simulationen mesoskopischer Größenordnung schon gemacht wurden
+\cite{panwisawas2017mesoscale}, wird hier ein Skalierungsansatz genommen. Das ganze Modell wird
+dafür kleiner skaliert (Durchmesser bei wenigen hundert \AA ngström) und auf Validität untersucht.
+
+Im ersten von zwei Teilen werden zuerst die ingenieurwissenschaftliche Datenlage und die
+Grundlagen der Molekulardynamik besprochen. Besonders wichtig sind hierbei die beim selektivem
+Laserschmelzen auftretenden Defekte sowie die notwendigen Näherungen bei der Entwicklung des
+Modells.
+
+Im zweiten Teil werden dann die Simulationsergebnisse ausgewertet und besprochen. Hier geht es
+überwiegend darum zu argumentieren, ob dieses Modell geeignet zur Beschreibung von selektivem
+Laserschmelzen.
+
+Tatsächlich finden sich Hinweise auf die den Defekten zugrundeliegenden Mechanismen. Zwar ist
+das Modell, welches das Ergebnis dieser Arbeit war, bei weitem noch nicht vollständig, aber die
+grundlegenden Voraussetzungen scheinen erfüllt zu sein, um ein fundiertes Modell abzugeben.
+So konnte beispielsweise schon ein Mechanismus zur Porenbildung identifiziert werden, wobei diese
+Poren durch das Abhanden-sein eines Umgebungsgases nicht erhalten geblieben sind. Außerdem konnten
+gezeigt werden, dass eine langsamere Lasergeschwindigkeit die Tröpfchenbildung begünstigt, was
+Sadali et. al. als eine mögliche Ursache für Defekte wie balling oder splashing benannten
+\cite{sadali2020influence}.
+
+Die Arbeit verwendet hierbei reines Aluminium im Vakuum. Zwar sind reine Metalle im SLM
+eher die Seltenheit, jedoch besteht das oft verwendete AluSi10Mg beispielsweise aus ungefähr
+\SI{90}{\percent} Aluminium. Dazu kommt, dass aufgrund der vielen unbekannten Sachverhalte
+bei diesem Thema viele offene Fragen existieren. Um die Zahl der bekannten Faktoren in diesem
+stark simplifizierte Modell zu erhöhen, wurde vorerst auf Aluminium gesetzt, da hierzu zahlreiche
+Abschlussarbeiten des Instituts vorliegen.
+
+Das Modell ist natürlich noch lange nicht vollständig. Während Einzelaspekte und Indizien schon
+erkennbar sind bedarf es für eine realistischere Simulation weiterer Verbesserungen. So ist die
+Einbettung eines umgebenden Schutzgases wie beispielsweise Argon notwendig, um Defekte wie Poren
+oder Mikrorisse akkurat simulieren zu können.
+
+Auch eine Erweiterung um eine simulierte Kühlungseinheit könnte hilfreich für die Genauigkeit
+der Ergebnisse sein. Bis jetzt ist das geschmolzene Material ja nicht in der Lage wieder zu seiner
+üblichen Gitterform zu erstarren. Die perfekte Isolierung nach den Regeln des NVE-Ensembles führt
+auch zu dem Trend selbst lange nach der Bestrahlung durch einen Laser noch weiteres Material zu
+schmelzen. Dem könnte beispielsweise mit einer simulierten Aktivkühlung entgegengewirkt werden.
+
+Trotz dem hohen Erweiterungspotential des Modells ist es dennoch schon benutzbar. So können jetzt
+schon nach dem gleichen Prinzip unterschiedliche Proben untersucht werden. Diese könnten
+beispielsweise Aneinanderreihungen von mehreren Kugeln sein, um deren gegenseitige Einflussnahme
+besser darzustellen. Ebenfalls sind geschichtete Kugeln, eventuell sogar unterschiedlicher Größe,
+von Interesse. Bekanntermaßen ist eines der häufigsten Ursachen für Porenbildung eine mangelnde
+Packungsdichte des Materialpulvers. Es wäre von höchstem Interesse die mikroskopische Porenbildung
+für verschiedene Packungsdichten zu Untersuchen. Die Simulation mehrerer Partikel liegt nicht nur
+offensichtlicher Weise näher an der Realität, sondern macht auch erst das Auftreten diverser
+Effekte möglich. Ebenfalls ist zu beachten, dass in dieser Arbeit eine Kugel auf festem Grund
+betrachtet wurde. Da in der meisten Zeit das ungeschmolzene Pulver aber über eines bereits
+verarbeiteten Schicht liegt, ist die Wechselwirkung mit einem nicht-fixierten Boden ebenfalls
+nicht unwichtig.
