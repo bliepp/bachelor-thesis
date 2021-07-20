@@ -29,6 +29,21 @@
 %% features
 \RequirePackage{amsmath,amssymb,mathtools,caption}
 \RequirePackage[exponent-product=\cdot]{siunitx}
+\RequirePackage[outdir=./]{epstopdf}
+\RequirePackage{tikz}
+
+
+% TIKZ stuff
+\usetikzlibrary{shapes.geometric,arrows}
+\tikzset{
+	invisible/.style={opacity=0,text opacity=0},
+    visible on/.style={alt=#1{}{invisible}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+}
+\tikzstyle{flowchart} = [rectangle, rounded corners, minimum width=0.9\textwidth, text centered, draw=black, fill=white]
+\tikzstyle{arrow} = [thick,->,>=stealth]
 
 
 % BibTeX stuff
@@ -44,6 +59,10 @@
 \definecolor{darkgreen}{HTML}{35B035}
 \definecolor{darkblue}{HTML}{3B3BC4}
 \definecolor{verylightgrey}{HTML}{DDDDDD}
+
+%% structural stuff
+\let\oldcolumns\columns
+\def\columns{\vspace{-\baselineskip}\oldcolumns[onlytextwidth]}
 
 %% infinitesimal elements
 \newcommand{\dinf}{\ensuremath{\text{d}}}
