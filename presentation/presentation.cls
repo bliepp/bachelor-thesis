@@ -60,9 +60,16 @@
 \definecolor{darkblue}{HTML}{3B3BC4}
 \definecolor{verylightgrey}{HTML}{DDDDDD}
 
+% graphical stuff
+\renewcommand{\arraystretch}{1.8}
+
 %% structural stuff
 \let\oldcolumns\columns
 \def\columns{\vspace{-\baselineskip}\oldcolumns[onlytextwidth]}
+
+%% units
+\newcommand{\powerunit}[1][]{\ensuremath{#1\,\frac{\si{\electronvolt}}{\SI{10.18}{fs}}}}
+\newcommand{\timeunit}{\ensuremath{\,\SI{10.18}{fs}}}
 
 %% infinitesimal elements
 \newcommand{\dinf}{\ensuremath{\text{d}}}
