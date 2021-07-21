@@ -14,7 +14,7 @@ set grid
 
 set term postscript eps enhanced color font "Helvetica,22"
 
-set xlabel "Time t [10,18 fs]"
+set xlabel "Time t [10.18 fs]"
 set ylabel "Melting rate [%]"
 
 
