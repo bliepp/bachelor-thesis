@@ -93,32 +93,62 @@
 
 
 \begin{frame}{Influence of the laser power - Results}
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\onslide<+->{
-			\begin{figure}
-				\centering
-				\captionsetup{justification=centering}
-				\includegraphics[width=0.95\textwidth]{single/img/power_calibration/v10_p100_c225.png}
-				\caption{Cut-through after 11250 time units at $P = \SI{100}{\electronvolt}/\SI{10.81}{fs}$.}
-			\end{figure}
-			}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\onslide<+->{
-			\begin{figure}
-				\centering
-				\captionsetup{justification=centering}
-				\includegraphics[width=0.95\textwidth]{single/img/power_calibration/v10_p100_c280.png}
-				\caption{Cut-through after 14000 time units at $P = \SI{100}{\electronvolt}/\SI{10.81}{fs}$.}
-			\end{figure}
-			}
-		\end{column}
-	\end{columns}
-	\end{frame}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\onslide<+->{
+		\begin{figure}
+			\centering
+			\captionsetup{justification=centering}
+			\includegraphics[width=0.95\textwidth]{single/img/power_calibration/v10_p100_c225.png}
+			\caption{Cut-through after 11250 time units at $P = \SI{100}{\electronvolt}/\SI{10.81}{fs}$.}
+		\end{figure}
+		}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\onslide<+->{
+		\begin{figure}
+			\centering
+			\captionsetup{justification=centering}
+			\includegraphics[width=0.95\textwidth]{single/img/power_calibration/v10_p100_c280.png}
+			\caption{Cut-through after 14000 time units at $P = \SI{100}{\electronvolt}/\SI{10.81}{fs}$.}
+		\end{figure}
+		}
+	\end{column}
+\end{columns}
+\end{frame}
 
 
 \subsection{Cutting the scanning speed in half}
-\begin{frame}{Cutting the scanning speed in half}
-	\missing
+\begin{frame}{Cutting the scanning speed in half - Finding a matching pair}
+	\begin{figure}
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.5\textwidth]{single/plt/power_calibration/cna_vel5_start_en.eps}
+		\caption{Comparison of various velocity-power pairs.}
+	\end{figure}
+\end{frame}
+
+\subsection{Cutting the scanning speed in half}
+\begin{frame}{Cutting the scanning speed in half - Comparison}
+\vspace{-1.1\baselineskip}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\captionsetup{justification=centering}
+			\includegraphics[width=0.58\textwidth]{single/img/power_calibration/v10_p80_t1250.png}
+			\includegraphics[width=0.58\textwidth]{single/img/power_calibration/v5_p50_t1250.png}
+			\caption{Snapshot at 1250 time units.\\Top: $v = \SI{10}{\angstrom \per \timeunit}$. Bottom: $v = \SI{5}{\angstrom \per \timeunit}$}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\captionsetup{justification=centering}
+			\includegraphics[width=0.58\textwidth]{single/img/power_calibration/v10_p80_t3000.png}
+			\includegraphics[width=0.58\textwidth]{single/img/power_calibration/v5_p50_t3000.png}
+			\caption{Snapshot at 3000 time units.\\Top: $P = \SI{80}{\electronvolt}/\SI{10.81}{fs}$. Bottom: $P = \SI{50}{\electronvolt}/\SI{10.81}{fs}$}
+		\end{figure}
+	\end{column}
+\end{columns}
 \end{frame}
